@@ -1,0 +1,24 @@
+﻿<div class="header">
+  <div class="header-wrap">
+    <div class="section">
+      <div class="left-box">
+        <a class="logo" href="<%linkurl("index")%>">{site.name}</a>
+        <p class="nav">
+          <a href="<%linkurl("news")%>">新闻</a>        
+          <a href="<%linkurl("video")%>">视频</a>
+          <a href="<%linkurl("photo")%>">图片</a>
+          <a href="<%linkurl("down")%>">教程</a>
+        </p>
+      </div>
+      <div class="search">
+        <input id="keywords" name="keywords" class="input" type="text" onkeydown="if(event.keyCode==13){SiteSearch('<%linkurl("search")%>', '#keywords');return false};" placeholder="输入回车搜索" x-webkit-speech="" />
+        <input class="submit" type="submit" onclick="SiteSearch('<%linkurl("search")%>', '#keywords');" value="搜索" />
+      </div>
+      <div class="right-box">
+        <ul id="menu">       
+          <li><a href="<%linkurl("content","contact")%>">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
