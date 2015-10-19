@@ -1,0 +1,7 @@
+F:\wwwroot\nknow\qknow-site\DTcms.Model\bin\Release\DTcms.Model.dll
+F:\wwwroot\nknow\qknow-site\DTcms.Model\bin\Release\DTcms.Model.pdb
+F:\wwwroot\nknow\qknow-site\DTcms.Model\bin\Release\DTcms.Common.dll
+F:\wwwroot\nknow\qknow-site\DTcms.Model\bin\Release\DTcms.Common.pdb
+F:\wwwroot\nknow\qknow-site\DTcms.Model\obj\Release\DTcms.Model.csprojResolveAssemblyReference.cache
+F:\wwwroot\nknow\qknow-site\DTcms.Model\obj\Release\DTcms.Model.dll
+F:\wwwroot\nknow\qknow-site\DTcms.Model\obj\Release\DTcms.Model.pdb

@@ -9,331 +9,398 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/10/13 星期二 上午 10:25:33.
-		本页面代码由DTcms模板引擎生成于 2015/10/13 星期二 上午 10:25:33. 
+		This page was created by DTcms Template Engine at 2015/10/19 星期一 下午 6:39:18.
+		本页面代码由DTcms模板引擎生成于 2015/10/19 星期一 下午 6:39:18. 
 	*/
 
 	base.OnInit(e);
 	StringBuilder templateBuilder = new StringBuilder(220000);
 
-	templateBuilder.Append("<!DOCTYPE html>\r\n<!--HTML5 doctype-->\r\n<html>\r\n<head>\r\n<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0\">\r\n<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n<title>站内短信息 - ");
+	templateBuilder.Append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n<title>站内短信息 - ");
 	templateBuilder.Append(Utils.ObjectToStr(site.name));
-	templateBuilder.Append("</title>\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/css/icons.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/css/af.ui.base.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/css/style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append("</title>\r\n<meta name=\"keywords\" content=\"");
+	templateBuilder.Append(Utils.ObjectToStr(site.seo_keyword));
+	templateBuilder.Append("\" />\r\n<meta name=\"description\" content=\"");
+	templateBuilder.Append(Utils.ObjectToStr(site.seo_description));
+	templateBuilder.Append("\" />\r\n<link href=\"");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/css/style.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("scripts/artdialog/ui-dialog.css\" />\r\n<!--jqMobi主JS-->\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("css/pagination.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/artdialog/ui-dialog.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/jquery/jquery-1.11.2.min.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/jq.appframework.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/ui/appframework.ui.js\"></");
-	templateBuilder.Append("script>\r\n<!--jqMobi插件-->\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/plugins/jq.slidemenu.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/artdialog/dialog-plus-min.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/js/base.js\"></");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/js/common.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\">\r\n	function ExecPostBack(checkValue) {\r\n		if (arguments.length == 1) {\r\n			ExecDelete('");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/submit_ajax.ashx?action=user_message_delete', checkValue, '#turl');\r\n		}else{\r\n			var valueArr = '';\r\n			$(\"input[name='checkId']:checked\").each(function(i){\r\n				valueArr += $(this).val();\r\n				if(i < $(\"input[name='checkId']:checked\").length - 1){\r\n					valueArr += \",\"\r\n				}\r\n			});\r\n			ExecDelete('");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=user_message_delete', valueArr, '#turl');\r\n		}\r\n    }\r\n	//分页链接不使用异步\r\n	$(document).ready(function(e) {\r\n        $(\".page-list a\").attr(\"data-ignore\",true);\r\n    });\r\n</");
-	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"afui\">\r\n  <div id=\"content\">\r\n\r\n	<div id=\"mainPanel\" class=\"panel\">\r\n      ");
-	if (action=="add")
-	{
+	templateBuilder.Append("tools/submit_ajax.ashx?action=user_message_delete', valueArr, '#turl');\r\n		}\r\n    }\r\n</");
+	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body>\r\n<!--Header-->\r\n");
 
-	templateBuilder.Append("\r\n      <!--写短消息-->\r\n      <script type=\"text/javascript\" src=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("scripts/jquery/Validform_v5.3.2_min.js\"></");
-	templateBuilder.Append("script>\r\n	  <script type=\"text/javascript\">\r\n        $(function(){\r\n          //初始化表单\r\n          AjaxInitForm('#add_form', '#btnSubmit', 1, '#turl');\r\n        });\r\n      </");
-	templateBuilder.Append("script>\r\n      <header>\r\n        <a href=\"javascript:;\" onclick=\"history.back(-1);\" class=\"backButton\">返回</a>\r\n        <h1>写短消息</h1>\r\n        <a onclick=\"$.ui.toggleSideMenu()\" class=\"menuButton\"></a>\r\n      </header>\r\n      <form id=\"add_form\" name=\"add_form\" url=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=user_message_add\">\r\n        <div class=\"form-box\">\r\n          <div><input name=\"txtUserName\" id=\"txtUserName\" type=\"text\" placeholder=\"收件人用户名\" datatype=\"s1-50\"  nullmsg=\"请填写收件人用户名\" sucmsg=\" \" /></div>\r\n          <div><input name=\"txtTitle\" id=\"txtTitle\" type=\"text\" placeholder=\"短消息标题\" datatype=\"*1-50\" sucmsg=\" \" /></div>\r\n          <div><textarea name=\"txtContent\" rows=\"3\" placeholder=\"短消息内容\" datatype=\"*\" sucmsg=\" \"></textarea></div>\r\n          <div><input id=\"sendSave\" name=\"sendSave\" type=\"checkbox\" value=\"true\" checked=\"checked\" /><label for=\"sendSave\">保存到发件箱</label></div>\r\n          <div><input id=\"txtCode\" name=\"txtCode\" type=\"text\" placeholder=\"验证码\" style=\"width:100px;\" datatype=\"*\" sucmsg=\" \" />\r\n          <a id=\"verifyCode\" href=\"javascript:;\" onclick=\"ToggleCode(this, '");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/verify_code.ashx');return false;\" style=\"display:inline-block;\"><img src=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/verify_code.ashx\" width=\"80\" height=\"30\" style=\"vertical-align:middle;\" /> 看不清楚？</a>\r\n          </div>\r\n          <div><input id=\"btnSubmit\" name=\"btnSubmit\" type=\"submit\" value=\"确认发布\" class=\"btn orange full\" /></div>\r\n        </div>\r\n      </form>\r\n      <input id=\"turl\" type=\"hidden\" value=\"");
-	templateBuilder.Append(linkurl("usermessage","add"));
-
-	templateBuilder.Append("\" />\r\n      \r\n      <!--版权信息-->\r\n      ");
-
-	templateBuilder.Append("      <div class=\"copyright\">\r\n        <p><a href=\"");
+	templateBuilder.Append("<div class=\"header\">\r\n  <div class=\"header-wrap\">\r\n    <div class=\"section\">\r\n      <div class=\"left-box\">\r\n        <a class=\"logo\" href=\"");
 	templateBuilder.Append(linkurl("index"));
 
-	templateBuilder.Append("\" data-ignore=\"true\">触屏版</a> | <a href=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.weburl));
-	templateBuilder.Append("?m2w\" data-ignore=\"true\">电脑版</a> | <a href=\"javascript:;\" onclick=\"$.ui.scrollToTop('mainPanel')\">返回顶部</a></p>\r\n        <address>版权所有 深圳市动力启航软件有限公司 版本号 V");
-	templateBuilder.Append(Utils.GetVersion().ToString());
+	templateBuilder.Append("\">");
+	templateBuilder.Append(Utils.ObjectToStr(site.name));
+	templateBuilder.Append("</a>\r\n        <ul class=\"nav\">\r\n            <li><a href=\"/index.html\" class=\"letter\">首页</a></li>\r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("news"));
 
-	templateBuilder.Append("</address></p>\r\n      </div>");
+	templateBuilder.Append("\">新闻资讯</a></li> \r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("wytx"));
+
+	templateBuilder.Append("\">网页特效</a></li>\r\n          <li><a href=\"");
+	templateBuilder.Append(linkurl("wymb"));
+
+	templateBuilder.Append("\">网页模板</a></li>\r\n          <li><a href=\"");
+	templateBuilder.Append(linkurl("wyjc"));
+
+	templateBuilder.Append("\">网页教程</a></li>\r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("pmjc"));
+
+	templateBuilder.Append("\">平面教程</a></li>\r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("ymxz"));
+
+	templateBuilder.Append("\">源码下载</a></li>\r\n            \r\n        </ul>\r\n      </div>\r\n      <div class=\"search right-box\">\r\n        <input id=\"keywords\" name=\"keywords\" class=\"input\" type=\"text\" onkeydown=\"if(event.keyCode==13){SiteSearch('");
+	templateBuilder.Append(linkurl("search"));
+
+	templateBuilder.Append("', '#keywords');return false};\" placeholder=\"输入回车搜索\" x-webkit-speech=\"\" />\r\n        <input class=\"submit\" type=\"submit\" onclick=\"SiteSearch('");
+	templateBuilder.Append(linkurl("search"));
+
+	templateBuilder.Append("', '#keywords');\" value=\"搜索\" />\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n</div>");
 
 
-	templateBuilder.Append("\r\n      <!--/版权信息-->\r\n      \r\n      <footer>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","add"));
+	templateBuilder.Append("\r\n<!--/Header-->\r\n\r\n<div class=\"section clearfix\">\r\n  <div class=\"line30\"></div>\r\n\r\n  <div class=\"info-wrap\">\r\n    <!--左侧导航-->\r\n    ");
 
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon pencil pressed\">写消息</a>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","system"));
+	templateBuilder.Append("    <div class=\"info-box\">\r\n      <div class=\"avatar-box\">\r\n        <a href=\"");
+	templateBuilder.Append(linkurl("usercenter","avatar"));
 
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon mail\">系统消息</a>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","accept"));
-
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon message\">收件箱</a>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","send"));
-
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon target\">发件箱</a>\r\n      </footer>\r\n      <!--/写短消息-->\r\n      \r\n      ");
-	}
-	else if (action=="system")
+	templateBuilder.Append("\" class=\"img-box\">\r\n          ");
+	if (userModel.avatar!="")
 	{
 
-	templateBuilder.Append("\r\n      <!--系统消息-->\r\n      <header>\r\n        <a href=\"javascript:;\" onclick=\"history.back(-1);\" class=\"backButton\">返回</a>\r\n        <h1>系统消息</h1>\r\n        <a onclick=\"$.ui.toggleSideMenu()\" class=\"menuButton\"></a>\r\n      </header>\r\n      <!--操作按钮-->\r\n      <div class=\"select-bar\">\r\n        <div class=\"col\">\r\n          <a href=\"javascript:;\" onclick=\"checkAll(this);\" class=\"icon-check\">全选</a>\r\n        </div>\r\n        <div class=\"col\">\r\n          <a href=\"javascript:;\" onclick=\"ExecPostBack();\" class=\"icon-trash\">删除</a>\r\n        </div>\r\n      </div>\r\n      <!--/操作按钮-->\r\n      \r\n      <div>\r\n        <ul class=\"detail-list\">\r\n          ");
+	templateBuilder.Append("\r\n            <img src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.avatar));
+	templateBuilder.Append("\" />\r\n          ");
+	}
+	else
+	{
+
+	templateBuilder.Append("\r\n            <img src=\"");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/images/user-avatar.png\" />\r\n          ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n        </a>\r\n        <h3>\r\n        ");
+	if (userModel.nick_name!="")
+	{
+
+	templateBuilder.Append("\r\n          ");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.nick_name));
+	templateBuilder.Append("\r\n        ");
+	}
+	else
+	{
+
+	templateBuilder.Append("\r\n          ");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.user_name));
+	templateBuilder.Append("\r\n        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n        </h3>\r\n        <p>余额：");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.amount));
+	templateBuilder.Append(" 元</p>\r\n        <p>积分：");
+	templateBuilder.Append(Utils.ObjectToStr(userModel.point));
+	templateBuilder.Append(" 分</p>					\r\n      </div>\r\n      <ul class=\"side-nav\">\r\n        <li>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("userorder","list"));
+
+	templateBuilder.Append("\">订单管理</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("useraddress"));
+
+	templateBuilder.Append("\">收货地址</a>\r\n        </li>\r\n        <li>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("useramount","recharge"));
+
+	templateBuilder.Append("\">账户余额</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("userpoint","convert"));
+
+	templateBuilder.Append("\">我的积分</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usermessage","system"));
+
+	templateBuilder.Append("\">站内消息</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usercenter","invite"));
+
+	templateBuilder.Append("\">邀请好友</a>\r\n        </li>\r\n        <li>\r\n          \r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usercenter","proinfo"));
+
+	templateBuilder.Append("\">个人资料</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usercenter","avatar"));
+
+	templateBuilder.Append("\">头像设置</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usercenter","password"));
+
+	templateBuilder.Append("\">修改密码</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usercenter","exit"));
+
+	templateBuilder.Append("\">退出登录</a>\r\n        </li>\r\n      </ul>\r\n    </div>");
+
+
+	templateBuilder.Append("\r\n    <!--/左侧导航-->\r\n    \r\n    <!--右侧内容-->\r\n    <div class=\"home-box\">\r\n      ");
+	if (action=="system")
+	{
+
+	templateBuilder.Append("\r\n      <!--系统消息-->\r\n      <div class=\"u-tab-head\">\r\n        <p>\r\n          <a class=\"selected\" href=\"");
+	templateBuilder.Append(linkurl("usermessage","system"));
+
+	templateBuilder.Append("\">系统消息</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usermessage","accept"));
+
+	templateBuilder.Append("\">收件箱</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usermessage","send"));
+
+	templateBuilder.Append("\">发件箱</a>\r\n        </p>\r\n        <span>\r\n          <a class=\"add\" href=\"");
+	templateBuilder.Append(linkurl("usermessage","add"));
+
+	templateBuilder.Append("\">+ 写新消息</a>\r\n        </span>\r\n      </div>\r\n      <div class=\"u-tab-content\">\r\n        <div class=\"title-div\">\r\n          <strong>系统消息</strong>\r\n        </div>\r\n        <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"mtable\">\r\n          ");
 	DataTable list = get_user_message_list(10, page, "accept_user_name='"+userModel.user_name+"' and type=1", out totalcount);
 
+	templateBuilder.Append("<!--取得一个DataTable-->\r\n          ");
 	string pagelist = get_page_link(10, page, totalcount, "usermessage", action, "__id__");
 
 	templateBuilder.Append(" <!--取得分页页码列表-->\r\n          ");
 	foreach(DataRow dr in list.Rows)
 	{
 
-	templateBuilder.Append("\r\n          <li>\r\n            <input id=\"checkId-" + Utils.ObjectToStr(dr["id"]) + "\" name=\"checkId\" class=\"checkall\" type=\"checkbox\" value=\"" + Utils.ObjectToStr(dr["id"]) + "\" >\r\n            <label for=\"checkId-" + Utils.ObjectToStr(dr["id"]) + "\">\r\n              <a href=\"");
+	templateBuilder.Append("\r\n            <tr>\r\n              <td width=\"20\" align=\"center\"><input name=\"checkId\" class=\"checkall\" type=\"checkbox\" value=\"" + Utils.ObjectToStr(dr["id"]) + "\" ></td>\r\n              <td><a href=\"");
 	templateBuilder.Append(linkurl("usermessage_show",Utils.ObjectToStr(dr["id"])));
 
-	templateBuilder.Append("\"  data-ignore=\"true\">\r\n                <h4>" + Utils.ObjectToStr(dr["title"]) + "</h4>\r\n                <p><span>\r\n                ");
+	templateBuilder.Append("\">" + Utils.ObjectToStr(dr["title"]) + "</a></td>\r\n              <td width=\"30\" align=\"center\">\r\n                ");
 	if (Utils.ObjectToStr(dr["is_read"])=="1")
 	{
 
-	templateBuilder.Append("\r\n                已阅读\r\n                ");
+	templateBuilder.Append("\r\n                  已读\r\n                ");
 	}
 	else
 	{
 
-	templateBuilder.Append("\r\n                未阅读\r\n                ");
+	templateBuilder.Append("\r\n                  未读\r\n                ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n                </span>" + Utils.ObjectToStr(dr["post_time"]) + "</p>\r\n              </a>\r\n            </label>\r\n          </li>\r\n          ");
+	templateBuilder.Append("\r\n              </td>\r\n              <td width=\"150\">" + Utils.ObjectToStr(dr["post_time"]) + "</td>\r\n              <td width=\"38\"><a onclick=\"ExecPostBack('" + Utils.ObjectToStr(dr["id"]) + "');\" href=\"javascript:;\">删除</a></td>\r\n            </tr>\r\n          ");
 	}	//end for if
 
-	if (list.Rows.Count<1)
+	if (list.Rows.Count==0)
 	{
 
-	templateBuilder.Append("\r\n          <div class=\"nodata\">暂无记录</div>\r\n          ");
+	templateBuilder.Append("\r\n            <tr><td align=\"center\">暂无记录...</td></tr>\r\n          ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n        </ul>\r\n      </div>\r\n      <input id=\"turl\" type=\"hidden\" value=\"");
-	templateBuilder.Append(linkurl("usermessage","system"));
-
-	templateBuilder.Append("\" />\r\n      \r\n      <!--分页页码-->\r\n      <div class=\"page-list\">");
+	templateBuilder.Append("\r\n        </table>\r\n        <div class=\"page-foot\">\r\n          <div class=\"flickr right\">");
 	templateBuilder.Append(Utils.ObjectToStr(pagelist));
-	templateBuilder.Append("</div>\r\n      <!--/分页页码-->\r\n      \r\n      <!--版权信息-->\r\n      ");
-
-	templateBuilder.Append("      <div class=\"copyright\">\r\n        <p><a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" data-ignore=\"true\">触屏版</a> | <a href=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.weburl));
-	templateBuilder.Append("?m2w\" data-ignore=\"true\">电脑版</a> | <a href=\"javascript:;\" onclick=\"$.ui.scrollToTop('mainPanel')\">返回顶部</a></p>\r\n        <address>版权所有 深圳市动力启航软件有限公司 版本号 V");
-	templateBuilder.Append(Utils.GetVersion().ToString());
-
-	templateBuilder.Append("</address></p>\r\n      </div>");
-
-
-	templateBuilder.Append("\r\n      <!--/版权信息-->\r\n      \r\n      <footer>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","add"));
-
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon pencil\">写消息</a>\r\n        <a href=\"");
+	templateBuilder.Append("</div><!--放置页码列表-->\r\n          <div class=\"page-btns\">\r\n            <a onclick=\"checkAll(this);\" href=\"javascript:;\">全选</a>\r\n            <span class=\"pipe\">|</span>\r\n            <a onclick=\"ExecPostBack();\" href=\"javascript:;\">删除</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <input id=\"turl\" type=\"hidden\" value=\"");
 	templateBuilder.Append(linkurl("usermessage","system"));
 
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon mail pressed\">系统消息</a>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","accept"));
-
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon message\">收件箱</a>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","send"));
-
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon target\">发件箱</a>\r\n      </footer>\r\n      <!--/系统消息-->\r\n      \r\n      ");
+	templateBuilder.Append("\" /><!--存在跳转的URL值-->\r\n      <!--/系统消息-->\r\n      \r\n      ");
 	}
 	else if (action=="accept")
 	{
 
-	templateBuilder.Append("\r\n      <!--收件箱-->\r\n      <header>\r\n        <a onclick=\"history.back(-1);\" class=\"backButton\">返回</a>\r\n        <h1>收件箱</h1>\r\n        <a onclick=\"$.ui.toggleSideMenu()\" class=\"menuButton\"></a>\r\n      </header>\r\n      <!--操作按钮-->\r\n      <div class=\"select-bar\">\r\n        <div class=\"col\">\r\n          <a href=\"javascript:;\" onclick=\"checkAll(this);\" class=\"icon-check\">全选</a>\r\n        </div>\r\n        <div class=\"col\">\r\n          <a href=\"javascript:;\" onclick=\"ExecPostBack();\" class=\"icon-trash\">删除</a>\r\n        </div>\r\n      </div>\r\n      <!--/操作按钮-->\r\n      \r\n      <div>\r\n        <ul class=\"detail-list\">\r\n          ");
+	templateBuilder.Append("\r\n      <!--收件箱-->\r\n      <div class=\"u-tab-head\">\r\n        <p>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usermessage","system"));
+
+	templateBuilder.Append("\">系统消息</a>\r\n          <a class=\"selected\" href=\"");
+	templateBuilder.Append(linkurl("usermessage","accept"));
+
+	templateBuilder.Append("\">收件箱</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usermessage","send"));
+
+	templateBuilder.Append("\">发件箱</a>\r\n        </p>\r\n        <span>\r\n          <a class=\"add\" href=\"");
+	templateBuilder.Append(linkurl("usermessage","add"));
+
+	templateBuilder.Append("\">+ 写新消息</a>\r\n        </span>\r\n      </div>\r\n      <div class=\"u-tab-content\">\r\n        <div class=\"title-div\">\r\n          <strong>收件箱</strong>\r\n        </div>\r\n        <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"mtable\">\r\n          ");
 	DataTable list = get_user_message_list(10, page, "accept_user_name='"+userModel.user_name+"' and type=2", out totalcount);
 
+	templateBuilder.Append(" <!--取得一个DataTable-->\r\n      ");
 	string pagelist = get_page_link(10, page, totalcount, "usermessage", action, "__id__");
 
 	templateBuilder.Append(" <!--取得分页页码列表-->\r\n          ");
 	foreach(DataRow dr in list.Rows)
 	{
 
-	templateBuilder.Append("\r\n          <li>\r\n            <input id=\"checkId-" + Utils.ObjectToStr(dr["id"]) + "\" name=\"checkId\" class=\"checkall\" type=\"checkbox\" value=\"" + Utils.ObjectToStr(dr["id"]) + "\" >\r\n            <label for=\"checkId-" + Utils.ObjectToStr(dr["id"]) + "\">\r\n              <a href=\"");
-	templateBuilder.Append(linkurl("usermessage_show",Utils.ObjectToStr(dr["id"])));
+	templateBuilder.Append("\r\n            <tr>\r\n              <td width=\"20\" align=\"center\"><input name=\"checkId\" class=\"checkall\" type=\"checkbox\" value=\"" + Utils.ObjectToStr(dr["id"]) + "\" ></td>\r\n              <td width=\"48\">\r\n                ");
+	string user_avatar = get_user_avatar(Utils.ObjectToStr(dr["post_user_name"]));
 
-	templateBuilder.Append("\"  data-ignore=\"true\">\r\n                <h4><span>" + Utils.ObjectToStr(dr["post_user_name"]) + "</span>" + Utils.ObjectToStr(dr["title"]) + "</h4>\r\n                <p><span>\r\n                ");
-	if (Utils.ObjectToStr(dr["is_read"])=="1")
+	if (user_avatar=="")
 	{
 
-	templateBuilder.Append("\r\n                已阅读\r\n                ");
+	templateBuilder.Append("\r\n                <img src=\"");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/images/user_avatar.png\" width=\"48\" height=\"48\" />\r\n                ");
 	}
 	else
 	{
 
-	templateBuilder.Append("\r\n                未阅读\r\n                ");
+	templateBuilder.Append("\r\n                <img src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(user_avatar));
+	templateBuilder.Append("\" width=\"48\" height=\"48\" alt=\"" + Utils.ObjectToStr(dr["post_user_name"]) + "\" />\r\n                ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n                </span>" + Utils.ObjectToStr(dr["post_time"]) + "</p>\r\n              </a>\r\n            </label>\r\n          </li>\r\n          ");
-	}	//end for if
+	templateBuilder.Append("\r\n              </td>\r\n              <td><strong>" + Utils.ObjectToStr(dr["post_user_name"]) + "</strong><br /><a href=\"");
+	templateBuilder.Append(linkurl("usermessage_show",Utils.ObjectToStr(dr["id"])));
 
-	if (list.Rows.Count<1)
+	templateBuilder.Append("\">" + Utils.ObjectToStr(dr["title"]) + "</a></td>\r\n              <td width=\"30\" align=\"center\">\r\n                ");
+	if (Utils.ObjectToStr(dr["is_read"])=="1")
 	{
 
-	templateBuilder.Append("\r\n          <div class=\"nodata\">暂无记录</div>\r\n          ");
+	templateBuilder.Append("\r\n                  已读\r\n                ");
+	}
+	else
+	{
+
+	templateBuilder.Append("\r\n                  未读\r\n                ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n        </ul>\r\n      </div>\r\n      <input id=\"turl\" type=\"hidden\" value=\"");
-	templateBuilder.Append(linkurl("usermessage","accept"));
+	templateBuilder.Append("\r\n              </td>\r\n              <td width=\"150\">" + Utils.ObjectToStr(dr["post_time"]) + "</td>\r\n              <td width=\"30\"><a onclick=\"ExecPostBack('" + Utils.ObjectToStr(dr["id"]) + "');\" href=\"javascript:;\">删除</a></td>\r\n            </tr>\r\n          ");
+	}	//end for if
 
-	templateBuilder.Append("\" />\r\n      \r\n      <!--分页页码-->\r\n      <div class=\"page-list\">");
+	if (list.Rows.Count==0)
+	{
+
+	templateBuilder.Append("\r\n            <tr><td align=\"center\">暂无记录...</td></tr>\r\n          ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n        </table>\r\n        <div class=\"page-foot\">\r\n          <div class=\"flickr right\">");
 	templateBuilder.Append(Utils.ObjectToStr(pagelist));
-	templateBuilder.Append("</div>\r\n      <!--/分页页码-->\r\n      \r\n      <!--版权信息-->\r\n      ");
-
-	templateBuilder.Append("      <div class=\"copyright\">\r\n        <p><a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" data-ignore=\"true\">触屏版</a> | <a href=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.weburl));
-	templateBuilder.Append("?m2w\" data-ignore=\"true\">电脑版</a> | <a href=\"javascript:;\" onclick=\"$.ui.scrollToTop('mainPanel')\">返回顶部</a></p>\r\n        <address>版权所有 深圳市动力启航软件有限公司 版本号 V");
-	templateBuilder.Append(Utils.GetVersion().ToString());
-
-	templateBuilder.Append("</address></p>\r\n      </div>");
-
-
-	templateBuilder.Append("\r\n      <!--/版权信息-->\r\n      \r\n      <footer>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","add"));
-
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon pencil\">写消息</a>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","system"));
-
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon mail\">系统消息</a>\r\n        <a href=\"");
+	templateBuilder.Append("</div><!--放置页码列表-->\r\n          <div class=\"page-btns\">\r\n            <a onclick=\"checkAll(this);\" href=\"javascript:;\">全选</a>\r\n            <span class=\"pipe\">|</span>\r\n            <a onclick=\"ExecPostBack();\" href=\"javascript:;\">删除</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <input id=\"turl\" type=\"hidden\" value=\"");
 	templateBuilder.Append(linkurl("usermessage","accept"));
 
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon message pressed\">收件箱</a>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","send"));
-
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon target\">发件箱</a>\r\n      </footer>\r\n      <!--/收件箱-->\r\n      \r\n      ");
+	templateBuilder.Append("\" />\r\n      <!--/收件箱-->\r\n      \r\n      ");
 	}
 	else if (action=="send")
 	{
 
-	templateBuilder.Append("\r\n      <!--发件箱-->\r\n      <header>\r\n        <a onclick=\"history.back(-1);\" class=\"backButton\">返回</a>\r\n        <h1>发件箱</h1>\r\n        <a onclick=\"$.ui.toggleSideMenu()\" class=\"menuButton\"></a>\r\n      </header>\r\n      <!--操作按钮-->\r\n      <div class=\"select-bar\">\r\n        <div class=\"col\">\r\n          <a href=\"javascript:;\" onclick=\"checkAll(this);\" class=\"icon-check\">全选</a>\r\n        </div>\r\n        <div class=\"col\">\r\n          <a href=\"javascript:;\" onclick=\"ExecPostBack();\" class=\"icon-trash\">删除</a>\r\n        </div>\r\n      </div>\r\n      <!--/操作按钮-->\r\n      \r\n      <div>\r\n        <ul class=\"detail-list\">\r\n          ");
+	templateBuilder.Append("\r\n      <!--发件箱-->\r\n      <div class=\"u-tab-head\">\r\n        <p>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usermessage","system"));
+
+	templateBuilder.Append("\">系统消息</a>\r\n          <a href=\"");
+	templateBuilder.Append(linkurl("usermessage","accept"));
+
+	templateBuilder.Append("\">收件箱</a>\r\n          <a class=\"selected\" href=\"");
+	templateBuilder.Append(linkurl("usermessage","send"));
+
+	templateBuilder.Append("\">发件箱</a>\r\n        </p>\r\n        <span>\r\n          <a class=\"add\" href=\"");
+	templateBuilder.Append(linkurl("usermessage","add"));
+
+	templateBuilder.Append("\">+ 写新消息</a>\r\n        </span>\r\n      </div>\r\n      <div class=\"u-tab-content\">\r\n        <div class=\"title-div\">\r\n          <strong>发件箱</strong>\r\n        </div>\r\n        <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"mtable\">\r\n          ");
 	DataTable list = get_user_message_list(10, page, "post_user_name='"+userModel.user_name+"' and type=3", out totalcount);
 
+	templateBuilder.Append(" <!--取得一个DataTable-->\r\n      ");
 	string pagelist = get_page_link(10, page, totalcount, "usermessage", action, "__id__");
 
 	templateBuilder.Append(" <!--取得分页页码列表-->\r\n          ");
 	foreach(DataRow dr in list.Rows)
 	{
 
-	templateBuilder.Append("\r\n          <li>\r\n            <input id=\"checkId-" + Utils.ObjectToStr(dr["id"]) + "\" name=\"checkId\" class=\"checkall\" type=\"checkbox\" value=\"" + Utils.ObjectToStr(dr["id"]) + "\" >\r\n            <label for=\"checkId-" + Utils.ObjectToStr(dr["id"]) + "\">\r\n              <a href=\"");
-	templateBuilder.Append(linkurl("usermessage_show",Utils.ObjectToStr(dr["id"])));
+	templateBuilder.Append("\r\n            <tr>\r\n              <td width=\"20\" align=\"center\"><input name=\"checkId\" class=\"checkall\" type=\"checkbox\" value=\"" + Utils.ObjectToStr(dr["id"]) + "\" ></td>\r\n              <td width=\"48\">\r\n                ");
+	string user_avatar = get_user_avatar(Utils.ObjectToStr(dr["accept_user_name"]));
 
-	templateBuilder.Append("\"  data-ignore=\"true\">\r\n                <h4><span>" + Utils.ObjectToStr(dr["accept_user_name"]) + "</span>" + Utils.ObjectToStr(dr["title"]) + "</h4>\r\n                <p><span>\r\n                ");
-	if (Utils.ObjectToStr(dr["is_read"])=="1")
+	if (user_avatar=="")
 	{
 
-	templateBuilder.Append("\r\n                已阅读\r\n                ");
+	templateBuilder.Append("\r\n                <img src=\"");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/images/user_avatar.png\" width=\"48\" height=\"48\" />\r\n                ");
 	}
 	else
 	{
 
-	templateBuilder.Append("\r\n                未阅读\r\n                ");
+	templateBuilder.Append("\r\n                <img src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(user_avatar));
+	templateBuilder.Append("\" width=\"48\" height=\"48\" alt=\"" + Utils.ObjectToStr(dr["accept_user_name"]) + "\" />\r\n                ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n                </span>" + Utils.ObjectToStr(dr["post_time"]) + "</p>\r\n              </a>\r\n            </label>\r\n          </li>\r\n          ");
+	templateBuilder.Append("\r\n              </td>\r\n              <td><strong>" + Utils.ObjectToStr(dr["accept_user_name"]) + "</strong><br /><a href=\"");
+	templateBuilder.Append(linkurl("usermessage_show",Utils.ObjectToStr(dr["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(dr["title"]) + "</a></td>\r\n              <td width=\"150\">" + Utils.ObjectToStr(dr["post_time"]) + "</td>\r\n              <td width=\"30\"><a onclick=\"ExecPostBack('" + Utils.ObjectToStr(dr["id"]) + "');\" href=\"javascript:;\">删除</a></td>\r\n            </tr>\r\n          ");
 	}	//end for if
 
-	if (list.Rows.Count<1)
+	if (list.Rows.Count==0)
 	{
 
-	templateBuilder.Append("\r\n          <div class=\"nodata\">暂无记录</div>\r\n          ");
+	templateBuilder.Append("\r\n            <tr><td align=\"center\">暂无记录...</td></tr>\r\n          ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n        </ul>\r\n      </div>\r\n      <input id=\"turl\" type=\"hidden\" value=\"");
+	templateBuilder.Append("\r\n        </table>\r\n        <div class=\"page-foot\">\r\n          <div class=\"flickr right\">");
+	templateBuilder.Append(Utils.ObjectToStr(pagelist));
+	templateBuilder.Append("</div><!--放置页码列表-->\r\n          <div class=\"page-btns\">\r\n            <a onclick=\"checkAll(this);\" href=\"javascript:;\">全选</a>\r\n            <span class=\"pipe\">|</span>\r\n            <a onclick=\"ExecPostBack();\" href=\"javascript:;\">删除</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <input id=\"turl\" type=\"hidden\" value=\"");
 	templateBuilder.Append(linkurl("usermessage","send"));
 
-	templateBuilder.Append("\" />\r\n      \r\n      <!--分页页码-->\r\n      <div class=\"page-list\">");
-	templateBuilder.Append(Utils.ObjectToStr(pagelist));
-	templateBuilder.Append("</div>\r\n      <!--/分页页码-->\r\n      \r\n      <!--版权信息-->\r\n      ");
+	templateBuilder.Append("\" />\r\n      <!--/发件箱-->\r\n      \r\n      ");
+	}
+	else if (action=="add")
+	{
 
-	templateBuilder.Append("      <div class=\"copyright\">\r\n        <p><a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" data-ignore=\"true\">触屏版</a> | <a href=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.weburl));
-	templateBuilder.Append("?m2w\" data-ignore=\"true\">电脑版</a> | <a href=\"javascript:;\" onclick=\"$.ui.scrollToTop('mainPanel')\">返回顶部</a></p>\r\n        <address>版权所有 深圳市动力启航软件有限公司 版本号 V");
-	templateBuilder.Append(Utils.GetVersion().ToString());
-
-	templateBuilder.Append("</address></p>\r\n      </div>");
-
-
-	templateBuilder.Append("\r\n      <!--/版权信息-->\r\n      \r\n      <footer>\r\n        <a href=\"");
-	templateBuilder.Append(linkurl("usermessage","add"));
-
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon pencil\">写消息</a>\r\n        <a href=\"");
+	templateBuilder.Append("\r\n      <!--发布短信息-->\r\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("css/validate.css\" />\r\n      <script type=\"text/javascript\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/jquery.form.min.js\"></");
+	templateBuilder.Append("script>\r\n      <script type=\"text/javascript\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/Validform_v5.3.2_min.js\"></");
+	templateBuilder.Append("script>\r\n      <script type=\"text/javascript\">\r\n		$(function(){\r\n		  //初始化表单\r\n		  AjaxInitForm('#addForm', '#btnSubmit', 1, '#turl');\r\n		});\r\n	  </");
+	templateBuilder.Append("script>\r\n      <div class=\"u-tab-head\">\r\n        <p>\r\n          <a href=\"");
 	templateBuilder.Append(linkurl("usermessage","system"));
 
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon mail\">系统消息</a>\r\n        <a href=\"");
+	templateBuilder.Append("\">系统消息</a>\r\n          <a href=\"");
 	templateBuilder.Append(linkurl("usermessage","accept"));
 
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon message\">收件箱</a>\r\n        <a href=\"");
+	templateBuilder.Append("\">收件箱</a>\r\n          <a href=\"");
 	templateBuilder.Append(linkurl("usermessage","send"));
 
-	templateBuilder.Append("\" data-ignore=\"true\" class=\"icon target pressed\">发件箱</a>\r\n      </footer>\r\n      <!--/发件箱-->\r\n      ");
+	templateBuilder.Append("\">发件箱</a>\r\n        </p>\r\n      </div>\r\n      <div class=\"u-tab-content\">\r\n        <div class=\"title-div\">\r\n          <strong>发短消息</strong>\r\n        </div>\r\n        <form id=\"addForm\" name=\"addForm\" url=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("tools/submit_ajax.ashx?action=user_message_add\">\r\n          <div class=\"form-box\">\r\n            <dl>\r\n              <dt>收件人：</dt>\r\n              <dd>\r\n                <input name=\"txtUserName\" id=\"txtUserName\" type=\"text\" class=\"input txt\" datatype=\"s1-50\"  nullmsg=\"请填写收件人用户名\" sucmsg=\" \" />\r\n              </dd>\r\n            </dl>\r\n            <dl>\r\n              <dt>标题：</dt>\r\n              <dd><input name=\"txtTitle\" id=\"txtTitle\" type=\"text\" class=\"input txt\" datatype=\"*1-50\" sucmsg=\" \" /></dd>\r\n            </dl>\r\n            <dl>\r\n              <dt>内容：</dt>\r\n              <dd>\r\n                <textarea name=\"txtContent\" class=\"input\" style=\"width:300px;height:80px;\" datatype=\"*\" sucmsg=\" \"></textarea>\r\n              </dd>\r\n            </dl>\r\n            <dl>\r\n              <dt></dt>\r\n              <dd>\r\n                <label><input name=\"sendSave\" type=\"checkbox\" value=\"true\" checked=\"checked\" /> 保存到发件箱</label>\r\n              </dd>\r\n            </dl>\r\n            <dl>\r\n              <dt></dt>\r\n              <dd>\r\n                <input id=\"txtCode\" name=\"txtCode\" class=\"input small\" type=\"text\" datatype=\"*\" sucmsg=\" \" style=\"ime-mode:disabled;text-transform:uppercase;\">\r\n                <a id=\"verifyCode\" href=\"javascript:;\" onclick=\"ToggleCode(this, '");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("tools/verify_code.ashx');return false;\"><img src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("tools/verify_code.ashx\" width=\"80\" height=\"22\" style=\"vertical-align:middle;\" /> 看不清楚？</a>\r\n              </dd>\r\n            </dl>\r\n            <dl>\r\n              <dt></dt>\r\n              <dd><input name=\"btnSubmit\" id=\"btnSubmit\" type=\"submit\" class=\"btn btn-success\" value=\"确认发布\" /></dd>\r\n            </dl>\r\n          </div>\r\n        </form>\r\n        <input id=\"turl\" type=\"hidden\" value=\"");
+	templateBuilder.Append(linkurl("usermessage","add"));
+
+	templateBuilder.Append("\" />\r\n      </div>\r\n      <!--/发布短信息-->\r\n      ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n	</div>\r\n    \r\n    <!--左侧导航-->\r\n    ");
+	templateBuilder.Append("\r\n      \r\n    </div>\r\n    <!--/右侧内容-->\r\n  </div>\r\n</div>\r\n\r\n<!--Footer-->\r\n");
 
-	templateBuilder.Append("    <nav>\r\n      <ul class=\"list\">\r\n        <li class=\"divider\">网站导航</li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" class=\"icon home\" data-ignore=\"true\">网站首页</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("news"));
-
-	templateBuilder.Append("\" class=\"icon tv\" data-ignore=\"true\">新闻资讯</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("goods"));
-
-	templateBuilder.Append("\" class=\"icon basket\" data-ignore=\"true\">购物商城</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("video"));
-
-	templateBuilder.Append("\" class=\"icon camera\" data-ignore=\"true\">视频专区</a></li>\r\n        <li><a href=\"");
+	templateBuilder.Append("<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"#\">首 页</a>|\r\n      <a target=\"_blank\" href=\"#\">关于我们</a>|\r\n      <a target=\"_blank\" href=\"#\">新闻资讯</a>|\r\n      <a target=\"_blank\" href=\"#\">视频专区</a>|\r\n      <a target=\"_blank\" href=\"#\">资源下载</a>|\r\n    <a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("photo"));
 
-	templateBuilder.Append("\" class=\"icon picture\" data-ignore=\"true\">图片分享</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("down"));
+	templateBuilder.Append("\">图片分享</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("feedback"));
 
-	templateBuilder.Append("\" class=\"icon download\" data-ignore=\"true\">资源下载</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("usercenter","index"));
+	templateBuilder.Append("\">留言反馈</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("link"));
 
-	templateBuilder.Append("\" class=\"icon user\" data-ignore=\"true\">会员中心</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("content","about"));
-
-	templateBuilder.Append("\" class=\"icon info\" data-ignore=\"true\">关于我们</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("mfeedback"));
-
-	templateBuilder.Append("\" class=\"icon message\" data-ignore=\"true\">在线留言</a></li>\r\n        <li><a href=\"");
+	templateBuilder.Append("\">友情链接</a>|\r\n    <a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("content","contact"));
 
-	templateBuilder.Append("\" class=\"icon phone\" data-ignore=\"true\">联系我们</a></li>\r\n      </ul>\r\n    </nav>");
+	templateBuilder.Append("\">联系我们</a>\r\n  </div>\r\n  <div class=\"copyright\">\r\n    <p>版权所有 ");
+	templateBuilder.Append(site.company.ToString());
+
+	templateBuilder.Append(" 粤ICP备11064298号 DTcms版本号：");
+	templateBuilder.Append(Utils.GetVersion().ToString());
+
+	templateBuilder.Append(" </p>\r\n    <p>Copyright &copy; 20015-2016  Corporation,All Rights Reserved.</p>\r\n    <p><script src=\"\" language=\"javascript\"></");
+	templateBuilder.Append("script></p>\r\n  </div>\r\n</div>");
 
 
-	templateBuilder.Append("\r\n    <!--/左侧导航-->\r\n      \r\n  </div>\r\n</div>\r\n</body>\r\n</html>\r\n");
+	templateBuilder.Append("\r\n<!--/Footer-->\r\n</body>\r\n</html>");
 	Response.Write(templateBuilder.ToString());
 }
 </script>

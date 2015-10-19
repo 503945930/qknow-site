@@ -1,0 +1,7 @@
+F:\wwwroot\nknow\qknow-site\DTcms.DBUtility\bin\Release\DTcms.DBUtility.dll
+F:\wwwroot\nknow\qknow-site\DTcms.DBUtility\bin\Release\DTcms.DBUtility.pdb
+F:\wwwroot\nknow\qknow-site\DTcms.DBUtility\bin\Release\DTcms.Common.dll
+F:\wwwroot\nknow\qknow-site\DTcms.DBUtility\bin\Release\DTcms.Common.pdb
+F:\wwwroot\nknow\qknow-site\DTcms.DBUtility\obj\Release\DTcms.DBUtility.csprojResolveAssemblyReference.cache
+F:\wwwroot\nknow\qknow-site\DTcms.DBUtility\obj\Release\DTcms.DBUtility.dll
+F:\wwwroot\nknow\qknow-site\DTcms.DBUtility\obj\Release\DTcms.DBUtility.pdb

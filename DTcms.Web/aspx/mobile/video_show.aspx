@@ -9,16 +9,16 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/10/13 星期二 上午 10:25:33.
-		本页面代码由DTcms模板引擎生成于 2015/10/13 星期二 上午 10:25:33. 
+		This page was created by DTcms Template Engine at 2015/10/19 星期一 下午 6:39:18.
+		本页面代码由DTcms模板引擎生成于 2015/10/19 星期一 下午 6:39:18. 
 	*/
 
 	base.OnInit(e);
 	StringBuilder templateBuilder = new StringBuilder(220000);
 	const string channel = "video";
 
-	templateBuilder.Append("<!DOCTYPE html>\r\n<!--HTML5 doctype-->\r\n<html>\r\n<head>\r\n<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0\">\r\n<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n");
-	string category_title = get_category_title(model.category_id,"新闻资讯");
+	templateBuilder.Append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n");
+	string category_title = get_category_title(model.category_id,"视频专区");
 
 	templateBuilder.Append("\r\n<title>");
 	templateBuilder.Append(Utils.ObjectToStr(model.title));
@@ -26,179 +26,261 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append(Utils.ObjectToStr(category_title));
 	templateBuilder.Append(" - ");
 	templateBuilder.Append(Utils.ObjectToStr(site.name));
-	templateBuilder.Append("</title>\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/css/icons.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/css/af.ui.base.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/css/style.css\" />\r\n<!--jqMobi主JS-->\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("</title>\r\n<meta name=\"keywords\" content=\"");
+	templateBuilder.Append(Utils.ObjectToStr(model.seo_keywords));
+	templateBuilder.Append("\" />\r\n<meta name=\"description\" content=\"");
+	templateBuilder.Append(Utils.ObjectToStr(model.seo_description));
+	templateBuilder.Append("\" />\r\n<link href=\"");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/css/style.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/jquery/jquery-1.11.2.min.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/jq.appframework.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/ui/appframework.ui.js\"></");
-	templateBuilder.Append("script>\r\n<!--jqMobi插件-->\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/plugins/jq.slidemenu.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/ckplayer/ckplayer.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/js/base.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\">\r\n	$(document).ready(function(e) {\r\n		//设置视频容器大小\r\n		winResize();\r\n		$(window).resize(function() {\r\n			winResize();\r\n		});\r\n		//初始化视频容器\r\n		initCKPlayer('video-box', '" + Utils.ObjectToStr(model.fields["video_src"]) + "', '");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/js/common.js\"></");
+	templateBuilder.Append("script>\r\n<script type=\"text/javascript\">\r\n$(function(){\r\n	//设置视频容器大小\r\n	winResize();\r\n	$(window).resize(function() {\r\n		winResize();\r\n	});\r\n	//初始化视频容器\r\n	initCKPlayer('video-box', '" + Utils.ObjectToStr(model.fields["video_src"]) + "', '");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("scripts/ckplayer/ckplayer.swf');\r\n    });\r\n	//改变大小函数\r\n	function winResize(){\r\n		var w = $(\".video-box\").parent().width();\r\n		var h = w*9/16;\r\n		$(\".video-box\").width(w).height(h);\r\n	}\r\n</");
-	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"afui\">\r\n  <div id=\"content\">\r\n\r\n	<div id=\"mainPanel\" class=\"panel\" data-header=\"main_header\" data-footer=\"main_footer\">\r\n      <!--视频容器-->\r\n      <div id=\"video-box\" class=\"video-box\"></div>\r\n      <!--/视频容器-->\r\n      \r\n      <!--视频详细-->\r\n      <div class=\"meta\">\r\n        <h1 class=\"meta-tit\">");
-	templateBuilder.Append(Utils.ObjectToStr(model.title));
-	templateBuilder.Append("</h1>\r\n        <p class=\"meta-info\">\r\n          <span class=\"time\">");
-	templateBuilder.Append(Utils.ObjectToStr(model.add_time));
-	templateBuilder.Append("</span>\r\n          <span class=\"view\"><script type=\"text/javascript\" src=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=view_article_click&id=");
-	templateBuilder.Append(Utils.ObjectToStr(model.id));
-	templateBuilder.Append("&click=1\"></");
-	templateBuilder.Append("script>次浏览</span>\r\n          分类：");
-	templateBuilder.Append(Utils.ObjectToStr(category_title));
-	templateBuilder.Append("\r\n        </p>\r\n      </div>\r\n      \r\n      <div class=\"entry\">\r\n        ");
-	templateBuilder.Append(Utils.ObjectToStr(model.content));
-	templateBuilder.Append("\r\n      </div>\r\n      <!--/视频详细-->\r\n      \r\n      <!--相关资讯-->\r\n      <div class=\"section\">\r\n        <h1>相关视频</h1>\r\n      </div>\r\n      <div>\r\n        <ul class=\"photo-list\">\r\n          ");
-	DataTable redVideo = get_article_list(channel, model.category_id, 3, "is_red=1 and id<>"+model.id);
+	templateBuilder.Append("scripts/ckplayer/ckplayer.swf');\r\n});\r\n//改变大小函数\r\nfunction winResize(){\r\n	if($(\".section\").width() == 1180){\r\n		$(\".video-box\").width(840);\r\n		$(\".video-box\").height(473);\r\n	}else{\r\n		$(\".video-box\").width(601);\r\n		$(\".video-box\").height(338);\r\n	}\r\n}\r\n</");
+	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body>\r\n<!--Header-->\r\n");
+
+	templateBuilder.Append("<div class=\"header\">\r\n  <div class=\"header-wrap\">\r\n    <div class=\"section\">\r\n      <div class=\"left-box\">\r\n        <a class=\"logo\" href=\"");
+	templateBuilder.Append(linkurl("index"));
+
+	templateBuilder.Append("\">");
+	templateBuilder.Append(Utils.ObjectToStr(site.name));
+	templateBuilder.Append("</a>\r\n        <ul class=\"nav\">\r\n            <li><a href=\"/index.html\" class=\"letter\">首页</a></li>\r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("news"));
+
+	templateBuilder.Append("\">新闻资讯</a></li> \r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("wytx"));
+
+	templateBuilder.Append("\">网页特效</a></li>\r\n          <li><a href=\"");
+	templateBuilder.Append(linkurl("wymb"));
+
+	templateBuilder.Append("\">网页模板</a></li>\r\n          <li><a href=\"");
+	templateBuilder.Append(linkurl("wyjc"));
+
+	templateBuilder.Append("\">网页教程</a></li>\r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("pmjc"));
+
+	templateBuilder.Append("\">平面教程</a></li>\r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("ymxz"));
+
+	templateBuilder.Append("\">源码下载</a></li>\r\n            \r\n        </ul>\r\n      </div>\r\n      <div class=\"search right-box\">\r\n        <input id=\"keywords\" name=\"keywords\" class=\"input\" type=\"text\" onkeydown=\"if(event.keyCode==13){SiteSearch('");
+	templateBuilder.Append(linkurl("search"));
+
+	templateBuilder.Append("', '#keywords');return false};\" placeholder=\"输入回车搜索\" x-webkit-speech=\"\" />\r\n        <input class=\"submit\" type=\"submit\" onclick=\"SiteSearch('");
+	templateBuilder.Append(linkurl("search"));
+
+	templateBuilder.Append("', '#keywords');\" value=\"搜索\" />\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n</div>");
+
+
+	templateBuilder.Append("\r\n<!--/Header-->\r\n\r\n<div class=\"section clearfix\">\r\n  <!--右边-->\r\n  <div class=\"list-right\">\r\n    <div class=\"sidebar-box\">\r\n      <div class=\"line30\"></div>\r\n      <h3>视频类别</h3>\r\n      <ul class=\"navbar\">\r\n        ");
+	DataTable categoryList1 = get_category_child_list(channel, 0);
+
+	foreach(DataRow cdr1 in categoryList1.Rows)
+	{
+
+	templateBuilder.Append("\r\n        <li>\r\n          <h4><a href=\"");
+	templateBuilder.Append(linkurl("video_list",Utils.ObjectToStr(cdr1["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(cdr1["title"]) + "</a></h4>\r\n          <p>\r\n            ");
+	DataTable categoryList2 = get_category_child_list(channel, Utils.StrToInt(Utils.ObjectToStr(cdr1["id"]), 0));
+
+	foreach(DataRow cdr2 in categoryList2.Rows)
+	{
+
+	if (Utils.StrToInt(Utils.ObjectToStr(cdr2["id"]), 0)==model.category_id)
+	{
+
+	templateBuilder.Append("\r\n            <a href=\"");
+	templateBuilder.Append(linkurl("video_list",Utils.ObjectToStr(cdr2["id"])));
+
+	templateBuilder.Append("\" class=\"selected\">" + Utils.ObjectToStr(cdr2["title"]) + "</a>\r\n            ");
+	}
+	else
+	{
+
+	templateBuilder.Append("\r\n            <a href=\"");
+	templateBuilder.Append(linkurl("video_list",Utils.ObjectToStr(cdr2["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(cdr2["title"]) + "</a>\r\n            ");
+	}	//end for if
+
+	}	//end for if
+
+	templateBuilder.Append("\r\n          </p>\r\n        </li>\r\n        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n      </ul>\r\n      <div class=\"line20\"></div>\r\n      <h3>推荐视频</h3>\r\n      <div class=\"focus-list\">\r\n        <ul>\r\n          ");
+	DataTable redVideo = get_article_list(channel, 0, 4, "status=0 and is_red=1");
 
 	foreach(DataRow dr in redVideo.Rows)
 	{
 
-	templateBuilder.Append("\r\n          <li>\r\n            <a href=\"");
+	templateBuilder.Append("\r\n          <li>\r\n            <a title=\"" + Utils.ObjectToStr(dr["title"]) + "\" href=\"");
 	templateBuilder.Append(linkurl("video_show",Utils.ObjectToStr(dr["id"])));
 
-	templateBuilder.Append("\" data-ignore=\"true\">\r\n              <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" alt=\"" + Utils.ObjectToStr(dr["title"]) + "\" />\r\n              <h2>" + Utils.ObjectToStr(dr["title"]) + "</h2>\r\n            </a>\r\n          </li>\r\n          ");
+	templateBuilder.Append("\">\r\n              <b>\r\n                <em></em>\r\n                <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" />\r\n              </b>\r\n              <span>" + Utils.ObjectToStr(dr["title"]) + "</span>\r\n            </a>\r\n          </li>\r\n          ");
 	}	//end for if
 
-	if (redVideo.Rows.Count<1)
+	templateBuilder.Append("\r\n        </ul>\r\n      </div>\r\n      <div class=\"line10\"></div>\r\n      <h3>人气排行</h3>\r\n      <ul class=\"rank-list\">\r\n        ");
+	DataTable hotVideo = get_article_list(channel, 0, 10, "status=0", "click desc,id desc");
+
+	int hotdr__loop__id=0;
+	foreach(DataRow hotdr in hotVideo.Rows)
+	{
+		hotdr__loop__id++;
+
+
+	if (hotdr__loop__id==1)
 	{
 
-	templateBuilder.Append("\r\n          <p class=\"nodata\">同类下暂无推荐视频...</p>\r\n          ");
+	templateBuilder.Append("\r\n        <li class=\"active\">\r\n        ");
+	}
+	else
+	{
+
+	templateBuilder.Append("\r\n        <li>\r\n        ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n        </ul>\r\n      </div>\r\n      <!--/相关视频-->\r\n      \r\n      <!--评论-->\r\n      ");
+	templateBuilder.Append("\r\n          <span>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(hotdr["add_time"])).ToString("MM-dd"));
+
+	templateBuilder.Append("</span>\r\n          <i class=\"num\">");
+	templateBuilder.Append(hotdr__loop__id.ToString());
+
+	templateBuilder.Append("</i><a href=\"");
+	templateBuilder.Append(linkurl("video_show",Utils.ObjectToStr(hotdr["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(hotdr["title"]) + "</a>\r\n        </li>\r\n        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n      </ul>\r\n      \r\n    </div>\r\n  </div>\r\n  <!--/右边-->\r\n  \r\n  <!--左边-->\r\n  <div class=\"list-auto\">\r\n    <div class=\"line30\"></div>\r\n    <div id=\"video-box\" class=\"video-box\"></div>\r\n\r\n    <div class=\"meta\">\r\n      <h1>");
+	templateBuilder.Append(Utils.ObjectToStr(model.title));
+	templateBuilder.Append("</h1>\r\n      <p class=\"meta-info\">\r\n        <span class=\"time\">");
+	templateBuilder.Append(Utils.ObjectToStr(model.add_time));
+	templateBuilder.Append("</span>\r\n        <span class=\"comm\"><script type=\"text/javascript\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("tools/submit_ajax.ashx?action=view_comment_count&id=");
+	templateBuilder.Append(Utils.ObjectToStr(model.id));
+	templateBuilder.Append("\"></");
+	templateBuilder.Append("script>人评论</span>\r\n        <span class=\"view\"><script type=\"text/javascript\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("tools/submit_ajax.ashx?action=view_article_click&id=");
+	templateBuilder.Append(Utils.ObjectToStr(model.id));
+	templateBuilder.Append("&click=1\"></");
+	templateBuilder.Append("script>次浏览</span>\r\n        分类：");
+	templateBuilder.Append(Utils.ObjectToStr(category_title));
+	templateBuilder.Append("\r\n      </p>\r\n    </div>\r\n    \r\n    <div class=\"entry\">\r\n      ");
+	templateBuilder.Append(Utils.ObjectToStr(model.content));
+	templateBuilder.Append("\r\n    </div>\r\n    \r\n    <!--上下篇-->\r\n    <div class=\"next-prev-single\">\r\n      <p class=\"prev\">上一篇：");
+	templateBuilder.Append(get_prevandnext_article("video_show", -1, "没有了", 0).ToString());
+
+	templateBuilder.Append("</p>\r\n	  <p class=\"next\">下一篇：");
+	templateBuilder.Append(get_prevandnext_article("video_show", 1, "没有了", 0).ToString());
+
+	templateBuilder.Append("</p>\r\n    </div>\r\n    <!--/上下篇-->\r\n    \r\n    <div class=\"line15\"></div>\r\n    <!--相关推荐-->\r\n    <h2 class=\"base-tit\">\r\n      <span>相关图片</span>\r\n    </h2>\r\n    <div class=\"rel-list\">\r\n      <ul>\r\n        ");
+	DataTable relList = get_article_list(channel, model.category_id, 4, "is_red=1 and id<>"+model.id);
+
+	foreach(DataRow dr in relList.Rows)
+	{
+
+	templateBuilder.Append("\r\n        <li>\r\n          <div class=\"img-box\">\r\n            <a title=\"" + Utils.ObjectToStr(dr["title"]) + "\" href=\"");
+	templateBuilder.Append(linkurl("video_show",Utils.ObjectToStr(dr["id"])));
+
+	templateBuilder.Append("\">\r\n              <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" />\r\n            </a>\r\n          </div>\r\n          <div class=\"info\">\r\n            <h3><a title=\"" + Utils.ObjectToStr(dr["title"]) + "\" href=\"");
+	templateBuilder.Append(linkurl("video_show",Utils.ObjectToStr(dr["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(dr["title"]) + "</a></h3>\r\n            <p>" + Utils.ObjectToStr(dr["zhaiyao"]) + "</p>\r\n            <span>" + Utils.ObjectToStr(dr["add_time"]) + "</span>\r\n          </div>\r\n        </li>\r\n        ");
+	}	//end for if
+
+	if (relList.Rows.Count<1)
+	{
+
+	templateBuilder.Append("\r\n        <div class=\"nodata\">暂无相关的视频...</div>\r\n        ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n    <!--/相关推荐-->\r\n    <div class=\"clear\"></div>\r\n    \r\n    <!--用户评论-->\r\n    ");
+	if (model.is_msg==1)
+	{
+
+	templateBuilder.Append("\r\n    <h2 class=\"base-tit\">\r\n      <i>共有<b><script type=\"text/javascript\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("tools/submit_ajax.ashx?action=view_comment_count&id=");
+	templateBuilder.Append(Utils.ObjectToStr(model.id));
+	templateBuilder.Append("\"></");
+	templateBuilder.Append("script></b>访客发表了评论</i>\r\n      <span>网友评论</span>\r\n    </h2>\r\n    ");
 
 	int comment_count = get_comment_count(model.id, "is_lock=0");
 
-	templateBuilder.Append("<!--取得评论总数-->\r\n      <script type=\"text/javascript\" src=\"");
+	templateBuilder.Append("<!--取得评论总数-->\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("css/validate.css\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("css/pagination.css\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/artdialog/ui-dialog.css\" />\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/jquery.form.min.js\"></");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/artdialog/dialog-plus-min.js\"></");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/jquery/Validform_v5.3.2_min.js\"></");
-	templateBuilder.Append("script>\r\n      <script type=\"text/javascript\" src=\"");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("scripts/lhgdialog/lhgdialog.js?skin=idialog\"></");
-	templateBuilder.Append("script>\r\n      <script type=\"text/javascript\">\r\n        //初始化评论列表\r\n		function InitCommentList(){\r\n			CommentAjaxList('#btnLoadComment','#comment_list',10,");
+	templateBuilder.Append("scripts/jquery/jquery.pagination.js\"></");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\">\r\n      $(function(){\r\n        //初始化评论列表\r\n        pageInitComment();\r\n        //初始化发表评论表单\r\n        AjaxInitForm('#comment_form', '#btnSubmit', 1, '', pageInitComment);\r\n      });\r\n      //初始化评论列表\r\n      function pageInitComment(){\r\n	AjaxPageList('#comment_list', '#pagination', 10, ");
 	templateBuilder.Append(Utils.ObjectToStr(comment_count));
-	templateBuilder.Append(",'");
+	templateBuilder.Append(", '");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/submit_ajax.ashx?action=comment_list&article_id=");
 	templateBuilder.Append(Utils.ObjectToStr(model.id));
-	templateBuilder.Append("');\r\n		}\r\n		//页面加载完毕事件\r\n		$(document).ready(function(){\r\n			//初始化评论列表\r\n			InitCommentList(); //加载第一页评论列表\r\n			//初始化发表评论表单\r\n			AjaxInitForm('#comment_form', '#btnSubmit', 1);\r\n        });\r\n		\r\n      </");
-	templateBuilder.Append("script>\r\n      <div class=\"section\">\r\n        <h1><span>共");
-	templateBuilder.Append(Utils.ObjectToStr(comment_count));
-	templateBuilder.Append("条评论</span>网友评论</h1>\r\n      </div>\r\n      <div>\r\n        <div class=\"comment-add\">\r\n          <form id=\"comment_form\" name=\"comment_form\" url=\"");
+	templateBuilder.Append("', '");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/images/user_avatar.png');\r\n      }\r\n    </");
+	templateBuilder.Append("script>\r\n    <div class=\"comment-add\">\r\n      <form id=\"comment_form\" name=\"comment_form\" url=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/submit_ajax.ashx?action=comment_add&article_id=");
 	templateBuilder.Append(Utils.ObjectToStr(model.id));
-	templateBuilder.Append("\">\r\n            <div><textarea id=\"txtContent\" name=\"txtContent\" rows=\"3\" placeholder=\"吐槽一下\" datatype=\"*\" nullmsg=\"请填写评论内容\" errormsg=\"请填写评论内容\" sucmsg=\" \"></textarea></div>\r\n            <div class=\"btn-list\">\r\n              <input id=\"btnSubmit\" name=\"submit\" type=\"submit\" value=\"发表\" class=\"btn\" />\r\n              <input id=\"txtCode\" name=\"txtCode\" type=\"text\" class=\"code\" maxlength=\"4\" placeholder=\"验证码\" datatype=\"s4-4\" nullmsg=\"请填写验证码\" errormsg=\"请填写4位验证码\" sucmsg=\" \" />\r\n              <a href=\"javascript:;\" onclick=\"ToggleCode(this, '");
+	templateBuilder.Append("\">\r\n        <div class=\"editor\">\r\n          <textarea id=\"txtContent\" name=\"txtContent\" class=\"input\" datatype=\"*\" sucmsg=\" \"></textarea>\r\n        </div>\r\n        <div class=\"subcon\">\r\n          <input id=\"btnSubmit\" name=\"submit\" class=\"btn right\" type=\"submit\" value=\"提交评论（Ctrl+Enter）\" />\r\n          <span>验证码：</span>\r\n          <input id=\"txtCode\" name=\"txtCode\" type=\"text\" class=\"input small\" datatype=\"s4-4\" errormsg=\"请填写4位验证码\" sucmsg=\" \" onkeydown=\"if(event.ctrlKey&&event.keyCode==13){document.getElementById('btnSubmit').click();return false};\"  />\r\n          <a href=\"javascript:;\" onclick=\"ToggleCode(this, '");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/verify_code.ashx');return false;\"><img src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/verify_code.ashx\" width=\"80\" height=\"25\" style=\"vertical-align:middle;\" /> 看不清楚？</a>\r\n            </div>\r\n          </form>\r\n        </div>\r\n        <ol id=\"comment_list\" class=\"comment-list\">\r\n          <p class=\"nodata\">暂无评论，快来抢沙发吧！</p>\r\n        </ol>\r\n      </div>\r\n      ");
-	if (comment_count>0)
-	{
+	templateBuilder.Append("tools/verify_code.ashx\" width=\"80\" height=\"22\" style=\"vertical-align:middle;\" /> 看不清楚？</a>\r\n        </div>\r\n      </form>\r\n    </div>\r\n    \r\n    <div class=\"comment-box\">\r\n      <ol id=\"comment_list\" class=\"comment-list\"></ol>\r\n    </div>\r\n    <!--放置页码-->\r\n    <div class=\"page-box\" style=\"margin-left:-8px;\">\r\n      <div id=\"pagination\" class=\"digg\"></div>\r\n    </div>\r\n    <div class=\"line10\"></div>\r\n    <!--/放置页码-->");
 
-	templateBuilder.Append("\r\n      <div class=\"more-comment\">\r\n        <input id=\"btnLoadComment\" type=\"button\" value=\"加载更多评论\" class=\"btn\" onclick=\"InitCommentList();\">\r\n      </div>\r\n      ");
+
 	}	//end for if
 
+	templateBuilder.Append("\r\n    <!--用户评论-->\r\n    \r\n  </div>\r\n  <!--/左边-->\r\n  \r\n</div>\r\n\r\n<!--Footer-->\r\n");
 
-
-	templateBuilder.Append("\r\n      <!--/评论-->\r\n      \r\n      <!--版权信息-->\r\n      ");
-
-	templateBuilder.Append("      <div class=\"copyright\">\r\n        <p><a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" data-ignore=\"true\">触屏版</a> | <a href=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.weburl));
-	templateBuilder.Append("?m2w\" data-ignore=\"true\">电脑版</a> | <a href=\"javascript:;\" onclick=\"$.ui.scrollToTop('mainPanel')\">返回顶部</a></p>\r\n        <address>版权所有 深圳市动力启航软件有限公司 版本号 V");
-	templateBuilder.Append(Utils.GetVersion().ToString());
-
-	templateBuilder.Append("</address></p>\r\n      </div>");
-
-
-	templateBuilder.Append("\r\n      <!--/版权信息-->\r\n    \r\n	</div>\r\n    \r\n    <!--页面头部-->\r\n    ");
-
-	templateBuilder.Append("    <header id=\"main_header\">\r\n      <h2 class=\"logo\"><img src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/images/logo.png\" /></h2>\r\n      <a onclick=\"af.ui.toggleSideMenu()\" class=\"menuButton\"></a>\r\n    </header>");
-
-
-	templateBuilder.Append("\r\n    <!--/页面头部-->\r\n    \r\n    <!--底部导航-->\r\n    ");
-
-	templateBuilder.Append("    <footer id=\"main_footer\">\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" class=\"icon home\" data-ignore=\"true\">首页</a>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","index"));
-
-	templateBuilder.Append("\" class=\"icon user\" data-ignore=\"true\">会员</a>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("cart"));
-
-	templateBuilder.Append("\" class=\"icon basket\" data-ignore=\"true\">购物车 <span class=\"af-badge lr\"><script type=\"text/javascript\" src=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=view_cart_count\"></");
-	templateBuilder.Append("script></span></a>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("search"));
-
-	templateBuilder.Append("\" class=\"icon magnifier\" data-ignore=\"true\">搜索</a>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("content","contact"));
-
-	templateBuilder.Append("\" class=\"icon phone\" data-ignore=\"true\">电话</a>\r\n    </footer>");
-
-
-	templateBuilder.Append("\r\n    <!--/底部导航-->\r\n	\r\n    <!--左侧导航-->\r\n    ");
-
-	templateBuilder.Append("    <nav>\r\n      <ul class=\"list\">\r\n        <li class=\"divider\">网站导航</li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" class=\"icon home\" data-ignore=\"true\">网站首页</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("news"));
-
-	templateBuilder.Append("\" class=\"icon tv\" data-ignore=\"true\">新闻资讯</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("goods"));
-
-	templateBuilder.Append("\" class=\"icon basket\" data-ignore=\"true\">购物商城</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("video"));
-
-	templateBuilder.Append("\" class=\"icon camera\" data-ignore=\"true\">视频专区</a></li>\r\n        <li><a href=\"");
+	templateBuilder.Append("<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"#\">首 页</a>|\r\n      <a target=\"_blank\" href=\"#\">关于我们</a>|\r\n      <a target=\"_blank\" href=\"#\">新闻资讯</a>|\r\n      <a target=\"_blank\" href=\"#\">视频专区</a>|\r\n      <a target=\"_blank\" href=\"#\">资源下载</a>|\r\n    <a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("photo"));
 
-	templateBuilder.Append("\" class=\"icon picture\" data-ignore=\"true\">图片分享</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("down"));
+	templateBuilder.Append("\">图片分享</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("feedback"));
 
-	templateBuilder.Append("\" class=\"icon download\" data-ignore=\"true\">资源下载</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("usercenter","index"));
+	templateBuilder.Append("\">留言反馈</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("link"));
 
-	templateBuilder.Append("\" class=\"icon user\" data-ignore=\"true\">会员中心</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("content","about"));
-
-	templateBuilder.Append("\" class=\"icon info\" data-ignore=\"true\">关于我们</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("mfeedback"));
-
-	templateBuilder.Append("\" class=\"icon message\" data-ignore=\"true\">在线留言</a></li>\r\n        <li><a href=\"");
+	templateBuilder.Append("\">友情链接</a>|\r\n    <a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("content","contact"));
 
-	templateBuilder.Append("\" class=\"icon phone\" data-ignore=\"true\">联系我们</a></li>\r\n      </ul>\r\n    </nav>");
+	templateBuilder.Append("\">联系我们</a>\r\n  </div>\r\n  <div class=\"copyright\">\r\n    <p>版权所有 ");
+	templateBuilder.Append(site.company.ToString());
+
+	templateBuilder.Append(" 粤ICP备11064298号 DTcms版本号：");
+	templateBuilder.Append(Utils.GetVersion().ToString());
+
+	templateBuilder.Append(" </p>\r\n    <p>Copyright &copy; 20015-2016  Corporation,All Rights Reserved.</p>\r\n    <p><script src=\"\" language=\"javascript\"></");
+	templateBuilder.Append("script></p>\r\n  </div>\r\n</div>");
 
 
-	templateBuilder.Append("\r\n    <!--/左侧导航-->\r\n      \r\n  </div>\r\n</div>\r\n</body>\r\n</html>\r\n");
+	templateBuilder.Append("\r\n<!--/Footer-->\r\n</body>\r\n</html>");
 	Response.Write(templateBuilder.ToString());
 }
 </script>

@@ -9,16 +9,16 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/10/13 星期二 上午 10:25:33.
-		本页面代码由DTcms模板引擎生成于 2015/10/13 星期二 上午 10:25:33. 
+		This page was created by DTcms Template Engine at 2015/10/19 星期一 下午 6:39:18.
+		本页面代码由DTcms模板引擎生成于 2015/10/19 星期一 下午 6:39:18. 
 	*/
 
 	base.OnInit(e);
 	StringBuilder templateBuilder = new StringBuilder(220000);
 	const string channel = "goods";
 
-	templateBuilder.Append("<!DOCTYPE html>\r\n<!--HTML5 doctype-->\r\n<html>\r\n<head>\r\n<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0\">\r\n<meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\r\n");
-	string category_title = get_category_title(model.category_id,"商品介绍");
+	templateBuilder.Append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n");
+	string category_title = get_category_title(model.category_id,"购物商城");
 
 	templateBuilder.Append("\r\n<title>");
 	templateBuilder.Append(Utils.ObjectToStr(model.title));
@@ -26,65 +26,88 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append(Utils.ObjectToStr(category_title));
 	templateBuilder.Append(" - ");
 	templateBuilder.Append(Utils.ObjectToStr(site.name));
-	templateBuilder.Append("</title>\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/css/icons.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/css/af.ui.base.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/css/idangerous.swiper.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/css/style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("scripts/artdialog/ui-dialog.css\" />\r\n<!--jqMobi主JS-->\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("</title>\r\n<meta name=\"keywords\" content=\"");
+	templateBuilder.Append(Utils.ObjectToStr(model.seo_keywords));
+	templateBuilder.Append("\" />\r\n<meta name=\"description\" content=\"");
+	templateBuilder.Append(Utils.ObjectToStr(model.seo_description));
+	templateBuilder.Append("\" />\r\n<link href=\"");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/css/style.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/jquery/jquery-1.11.2.min.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/jq.appframework.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/ui/appframework.ui.js\"></");
-	templateBuilder.Append("script>\r\n<!--jqMobi插件-->\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/jqmobi/plugins/jq.slidemenu.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/js/idangerous.swiper-2.1.min.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("scripts/artdialog/dialog-plus-min.js\"></");
+	templateBuilder.Append("scripts/jquery/jquery.jqzoom.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/js/base.js\"></");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/js/common.js\"></");
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
-	templateBuilder.Append("/templates/mobile");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/js/picture.js\"></");
+	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("/templates/wy");
 	templateBuilder.Append("/js/cart.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\">\r\n	$(document).ready(function(){\r\n      //初始化幻灯片插件\r\n	  var mySwiper = new Swiper('.swiper-container',{\r\n		calculateHeight:true,\r\n		resizeReInit:true,\r\n		pagination:\".pagination\",\r\n		autoplay:5000,\r\n		paginationClickable:true\r\n	  });\r\n	  //初始化规格事件\r\n	  initGoodsSpec('");
+	templateBuilder.Append("script>\r\n<script type=\"text/javascript\">\r\n$(function(){\r\n	//TAB切换\r\n	tabs('#goodsTabs','click');\r\n	//智能浮动层\r\n	$(\"#tabHead\").smartFloat();\r\n	//初始化规格事件\r\n	initGoodsSpec('");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=get_article_goods_info');\r\n	});\r\n</");
-	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body>\r\n<div id=\"afui\">\r\n  <div id=\"content\">\r\n\r\n	<div id=\"mainPanel\" class=\"panel\" data-header=\"main_header\" data-footer=\"main_footer\">\r\n      <!--幻灯片-->\r\n      <div id=\"slider\" class=\"swiper-container\">\r\n        <div class=\"swiper-wrapper\">\r\n          ");
+	templateBuilder.Append("tools/submit_ajax.ashx?action=get_article_goods_info');\r\n});\r\n</");
+	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body>\r\n<!--Header-->\r\n");
+
+	templateBuilder.Append("<div class=\"header\">\r\n  <div class=\"header-wrap\">\r\n    <div class=\"section\">\r\n      <div class=\"left-box\">\r\n        <a class=\"logo\" href=\"");
+	templateBuilder.Append(linkurl("index"));
+
+	templateBuilder.Append("\">");
+	templateBuilder.Append(Utils.ObjectToStr(site.name));
+	templateBuilder.Append("</a>\r\n        <ul class=\"nav\">\r\n            <li><a href=\"/index.html\" class=\"letter\">首页</a></li>\r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("news"));
+
+	templateBuilder.Append("\">新闻资讯</a></li> \r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("wytx"));
+
+	templateBuilder.Append("\">网页特效</a></li>\r\n          <li><a href=\"");
+	templateBuilder.Append(linkurl("wymb"));
+
+	templateBuilder.Append("\">网页模板</a></li>\r\n          <li><a href=\"");
+	templateBuilder.Append(linkurl("wyjc"));
+
+	templateBuilder.Append("\">网页教程</a></li>\r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("pmjc"));
+
+	templateBuilder.Append("\">平面教程</a></li>\r\n            <li><a href=\"");
+	templateBuilder.Append(linkurl("ymxz"));
+
+	templateBuilder.Append("\">源码下载</a></li>\r\n            \r\n        </ul>\r\n      </div>\r\n      <div class=\"search right-box\">\r\n        <input id=\"keywords\" name=\"keywords\" class=\"input\" type=\"text\" onkeydown=\"if(event.keyCode==13){SiteSearch('");
+	templateBuilder.Append(linkurl("search"));
+
+	templateBuilder.Append("', '#keywords');return false};\" placeholder=\"输入回车搜索\" x-webkit-speech=\"\" />\r\n        <input class=\"submit\" type=\"submit\" onclick=\"SiteSearch('");
+	templateBuilder.Append(linkurl("search"));
+
+	templateBuilder.Append("', '#keywords');\" value=\"搜索\" />\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n</div>");
+
+
+	templateBuilder.Append("\r\n<!--/Header-->\r\n\r\n<div class=\"section clearfix\">\r\n  <div class=\"main-wrap\">\r\n    <!--页面左边-->\r\n    <div class=\"left941\">\r\n      <!--商品图片-->\r\n      <div class=\"goods-pic\">\r\n        <!--幻灯片-->\r\n        <div class=\"pic-box\">\r\n          <div class=\"pic-preview\">\r\n            <span class=\"jqzoom\">\r\n              <img />\r\n            </span>\r\n          </div>\r\n          <!--缩略图-->\r\n          <div class=\"pic-scroll\">\r\n            <a class=\"prev\">&lt;</a>\r\n            <a class=\"next\">&gt;</a>\r\n            <div class=\"items\">\r\n              <ul>\r\n                ");
 	if (model.albums!=null)
 	{
 
 	foreach(DTcms.Model.article_albums modelt in model.albums)
 	{
 
-	templateBuilder.Append("\r\n          <div class=\"swiper-slide\"><img src=\"");
+	templateBuilder.Append("\r\n                <li><img bimg=\"");
+	templateBuilder.Append(Utils.ObjectToStr(modelt.original_path));
+	templateBuilder.Append("\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(modelt.thumb_path));
-	templateBuilder.Append("\"/></div>\r\n          ");
+	templateBuilder.Append("\" onmousemove=\"preview(this);\" /></li>\r\n                ");
 	}	//end for if
 
 	}	//end for if
 
-	templateBuilder.Append("\r\n        </div>\r\n        <div class=\"pagination\"></div>\r\n      </div>\r\n      <!--/幻灯片-->\r\n      \r\n      <!--商品信息-->\r\n      <script type=\"text/javascript\" src=\"");
+	templateBuilder.Append("\r\n              </ul>\r\n            </div>\r\n          </div>\r\n          <!--缩略图-->\r\n        </div>\r\n        <!--/幻灯片-->\r\n      </div>\r\n      <!--/商品图片-->\r\n      \r\n      <!--商品信息-->\r\n      <div class=\"goods-spec\">\r\n        <script type=\"text/javascript\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/submit_ajax.ashx?action=view_article_click&id=");
 	templateBuilder.Append(Utils.ObjectToStr(model.id));
 	templateBuilder.Append("&click=1&hide=1\"></");
-	templateBuilder.Append("script>\r\n      <div class=\"goods-btn\">\r\n		<h1>");
+	templateBuilder.Append("script>\r\n        <h1>");
 	templateBuilder.Append(Utils.ObjectToStr(model.title));
-	templateBuilder.Append("</h1>\r\n        <div class=\"price-box\">\r\n          <div>市场价：<s id=\"commodityMarketPrice\">¥" + Utils.ObjectToStr(model.fields["market_price"]) + "</s></div>\r\n          <div>销售价：<b id=\"commoditySellPrice\">¥" + Utils.ObjectToStr(model.fields["sell_price"]) + "</b></div>\r\n        </div>\r\n        \r\n        <div id=\"goodsSpecBox\" class=\"spec-box\">\r\n          <!--商品规格-->\r\n          ");
+	templateBuilder.Append("</h1>\r\n        <p class=\"subtitle\">" + Utils.ObjectToStr(model.fields["sub_title"]) + "</p>\r\n        <div class=\"spec-box\">\r\n          <dl>\r\n            <dt>货号</dt>\r\n            <dd id=\"commodityGoodsNo\">" + Utils.ObjectToStr(model.fields["goods_no"]) + "</dd>\r\n          </dl>\r\n          <dl>\r\n            <dt>市场价</dt>\r\n            <dd><s id=\"commodityMarketPrice\">¥" + Utils.ObjectToStr(model.fields["market_price"]) + "</s></dd>\r\n          </dl>\r\n          <dl>\r\n            <dt>销售价</dt>\r\n            <dd><em id=\"commoditySellPrice\" class=\"price\">¥" + Utils.ObjectToStr(model.fields["sell_price"]) + "</em></dd>\r\n          </dl>\r\n        </div>\r\n        \r\n        <div id=\"goodsSpecBox\" class=\"spec-box line\">\r\n          <!--商品规格-->\r\n          ");
 	List<DTcms.Model.article_goods_spec> specList = get_article_goods_spec(model.id, "parent_id=0");
 
 	if (specList!=null)
@@ -134,144 +157,142 @@ override protected void OnInit(EventArgs e)
 
 	}	//end for if
 
-	templateBuilder.Append("\r\n          <!--/商品规格-->\r\n        </div>\r\n        \r\n        <div class=\"input-box\">\r\n            购买数量：\r\n            <div class=\"listbox\">\r\n              <a class=\"min\" onclick=\"addCartNum(-1);\">-</a>\r\n              <input id=\"commodityArticleId\" type=\"hidden\" value=\"");
+	templateBuilder.Append("\r\n          <!--/商品规格-->\r\n        </div>\r\n        \r\n        <div class=\"spec-box\">\r\n          <dl>\r\n            <dt>购买数量</dt>\r\n            <dd>\r\n              <div class=\"stock-box\">\r\n                <input id=\"commodityArticleId\" type=\"hidden\" value=\"");
 	templateBuilder.Append(Utils.ObjectToStr(model.id));
-	templateBuilder.Append("\" />\r\n              <input id=\"commodityGoodsId\" type=\"hidden\" value=\"0\" />\r\n              <input id=\"commoditySelectNum\" name=\"commoditySelectNum\" type=\"text\" value=\"1\" readonly />\r\n              <a class=\"max\" onclick=\"addCartNum(1);\">+</a>\r\n            </div>\r\n        </div>\r\n        <div id=\"buyButton\" class=\"btn-box\">\r\n          <div class=\"col\">\r\n            <button class=\"btn buy over\" onclick=\"cartAdd(this,'");
+	templateBuilder.Append("\" />\r\n                <input id=\"commodityGoodsId\" type=\"hidden\" value=\"0\" />\r\n                <input id=\"commoditySelectNum\" type=\"text\" maxlength=\"9\" value=\"1\" maxValue=\"" + Utils.ObjectToStr(model.fields["stock_quantity"]) + "\" onkeydown=\"return checkNumber(event);\">\r\n                <a class=\"add\" onclick=\"addCartNum(1);\">+</a>\r\n                <a class=\"remove\" onclick=\"addCartNum(-1);\">-</a>\r\n              </div>\r\n              <span class=\"stock-txt\">\r\n                库存<em id=\"commodityStockNum\">" + Utils.ObjectToStr(model.fields["stock_quantity"]) + "</em>件\r\n              </span>\r\n            </dd>\r\n          </dl>\r\n          <dl>\r\n            <dd>\r\n              <div id=\"buyButton\" class=\"btn-buy\">\r\n                <button class=\"buy over\" onclick=\"cartAdd(this,'");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("',1,'");
 	templateBuilder.Append(linkurl("shopping"));
 
-	templateBuilder.Append("');\" disabled=\"disabled\">立即购买</button>\r\n          </div>\r\n          <div class=\"col\">\r\n            <button class=\"btn add over\" onclick=\"cartAdd(this,'");
+	templateBuilder.Append("');\" disabled=\"disabled\">立即购买</button>\r\n                <button class=\"add over\" onclick=\"cartAdd(this,'");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("',0,'");
 	templateBuilder.Append(linkurl("cart"));
 
-	templateBuilder.Append("');\" disabled=\"disabled\">加入购物车</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class=\"goods-item\">\r\n        <h2>商品参数</h2>\r\n        <dl>\r\n          <dt>商品货号：</dt>\r\n          <dd id=\"commodityGoodsNo\">" + Utils.ObjectToStr(model.fields["goods_no"]) + "</dd>\r\n        </dl>\r\n        <dl>\r\n          <dt>库存情况：</dt>\r\n          <dd id=\"commodityStockNum\">" + Utils.ObjectToStr(model.fields["stock_quantity"]) + "件</dd>\r\n        </dl>\r\n        <dl>\r\n          <dt>上架时间：</dt>\r\n          <dd>");
-	templateBuilder.Append(Utils.ObjectToStr(model.add_time));
-	templateBuilder.Append("</dd>\r\n        </dl>\r\n      </div>\r\n      \r\n      <div>\r\n        <ul class=\"list inset listview\">\r\n          <li><a href=\"#contentPanel\" data-refresh-ajax=\"true\">图文介绍</a></li>\r\n          <li><a href=\"#commentPanel\">商品评论(<script type=\"text/javascript\" src=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=view_comment_count&id=");
-	templateBuilder.Append(Utils.ObjectToStr(model.id));
-	templateBuilder.Append("\"></");
-	templateBuilder.Append("script>条)</a></li>\r\n        </ul>\r\n      </div>\r\n      <!--/商品信息-->\r\n      \r\n      <!--版权信息-->\r\n      ");
+	templateBuilder.Append("');\" disabled=\"disabled\">加入购物车</button>\r\n              </div>\r\n            </dd>\r\n          </dl>\r\n        </div>\r\n         \r\n        <div class=\"spec-box line\">\r\n          <dl>\r\n            <dd>\r\n              <!--分享-->\r\n              ");
 
-	templateBuilder.Append("      <div class=\"copyright\">\r\n        <p><a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" data-ignore=\"true\">触屏版</a> | <a href=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.weburl));
-	templateBuilder.Append("?m2w\" data-ignore=\"true\">电脑版</a> | <a href=\"javascript:;\" onclick=\"$.ui.scrollToTop('mainPanel')\">返回顶部</a></p>\r\n        <address>版权所有 深圳市动力启航软件有限公司 版本号 V");
-	templateBuilder.Append(Utils.GetVersion().ToString());
-
-	templateBuilder.Append("</address></p>\r\n      </div>");
+	templateBuilder.Append("  <!-- JiaThis Button BEGIN --> \r\n  <div id=\"ckepop\">\r\n      <span class=\"jiathis_txt\">分享到：</span>\r\n      <a class=\"jiathis_button_tqq\">腾讯</a>\r\n      <a class=\"jiathis_button_tsina\">新浪</a>\r\n      <a class=\"jiathis_button_renren\">人人网</a>\r\n      <a class=\"jiathis_button_email\">邮件</a>\r\n      <a class=\"jiathis_button_fav\">收藏夹</a>\r\n      <a class=\"jiathis_button_copy\">复制网址</a> \r\n      <a href=\"http://www.jiathis.com/share/?uid=90225\" class=\"jiathis jiathis_txt jiathis_separator jtico jtico_jiathis\" target=\"_blank\">更多</a> \r\n      <a class=\"jiathis_counter_style\"></a> \r\n  </div> \r\n  <!-- JiaThis Button END -->\r\n  <script type=\"text/javascript\">var jiathis_config={data_track_clickback:true};</");
+	templateBuilder.Append("script> \r\n  <script type=\"text/javascript\" src=\"http://v2.jiathis.com/code/jia.js?uid=1336353133859589\" charset=\"utf-8\"></");
+	templateBuilder.Append("script>");
 
 
-	templateBuilder.Append("\r\n      <!--/版权信息-->\r\n    \r\n	</div>\r\n    \r\n    <!--页面头部-->\r\n    ");
-
-	templateBuilder.Append("    <header id=\"main_header\">\r\n      <h2 class=\"logo\"><img src=\"");
-	templateBuilder.Append("/templates/mobile");
-	templateBuilder.Append("/images/logo.png\" /></h2>\r\n      <a onclick=\"af.ui.toggleSideMenu()\" class=\"menuButton\"></a>\r\n    </header>");
-
-
-	templateBuilder.Append("\r\n    <!--/页面头部-->\r\n    \r\n    <!--底部导航-->\r\n    ");
-
-	templateBuilder.Append("    <footer id=\"main_footer\">\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" class=\"icon home\" data-ignore=\"true\">首页</a>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("usercenter","index"));
-
-	templateBuilder.Append("\" class=\"icon user\" data-ignore=\"true\">会员</a>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("cart"));
-
-	templateBuilder.Append("\" class=\"icon basket\" data-ignore=\"true\">购物车 <span class=\"af-badge lr\"><script type=\"text/javascript\" src=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=view_cart_count\"></");
-	templateBuilder.Append("script></span></a>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("search"));
-
-	templateBuilder.Append("\" class=\"icon magnifier\" data-ignore=\"true\">搜索</a>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("content","contact"));
-
-	templateBuilder.Append("\" class=\"icon phone\" data-ignore=\"true\">电话</a>\r\n    </footer>");
-
-
-	templateBuilder.Append("\r\n    <!--/底部导航-->\r\n	\r\n    <!--左侧导航-->\r\n    ");
-
-	templateBuilder.Append("    <nav>\r\n      <ul class=\"list\">\r\n        <li class=\"divider\">网站导航</li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("index"));
-
-	templateBuilder.Append("\" class=\"icon home\" data-ignore=\"true\">网站首页</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("news"));
-
-	templateBuilder.Append("\" class=\"icon tv\" data-ignore=\"true\">新闻资讯</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("goods"));
-
-	templateBuilder.Append("\" class=\"icon basket\" data-ignore=\"true\">购物商城</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("video"));
-
-	templateBuilder.Append("\" class=\"icon camera\" data-ignore=\"true\">视频专区</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("photo"));
-
-	templateBuilder.Append("\" class=\"icon picture\" data-ignore=\"true\">图片分享</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("down"));
-
-	templateBuilder.Append("\" class=\"icon download\" data-ignore=\"true\">资源下载</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("usercenter","index"));
-
-	templateBuilder.Append("\" class=\"icon user\" data-ignore=\"true\">会员中心</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("content","about"));
-
-	templateBuilder.Append("\" class=\"icon info\" data-ignore=\"true\">关于我们</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("mfeedback"));
-
-	templateBuilder.Append("\" class=\"icon message\" data-ignore=\"true\">在线留言</a></li>\r\n        <li><a href=\"");
-	templateBuilder.Append(linkurl("content","contact"));
-
-	templateBuilder.Append("\" class=\"icon phone\" data-ignore=\"true\">联系我们</a></li>\r\n      </ul>\r\n    </nav>");
-
-
-	templateBuilder.Append("\r\n    <!--/左侧导航-->\r\n    \r\n    <!--商品介绍-->\r\n    <div id=\"contentPanel\" class=\"panel\" data-footer=\"none\">\r\n      <header>\r\n        <a onclick=\"$.ui.goBack();\" class=\"backButton\">返回</a>\r\n        <h1>商品介绍</h1>\r\n        <a onclick=\"$.ui.toggleSideMenu()\" class=\"menuButton\"></a>\r\n      </header>\r\n      <div class=\"meta\">\r\n        <h1 class=\"meta-tit\">");
-	templateBuilder.Append(Utils.ObjectToStr(model.title));
-	templateBuilder.Append("</h1>\r\n      </div>\r\n      <div class=\"entry\">\r\n        ");
+	templateBuilder.Append("\r\n              <!--/分享-->\r\n            </dd>\r\n          </dl>\r\n        </div>\r\n      </div>\r\n      <!--商品信息-->\r\n      <div class=\"line20\"></div>\r\n      \r\n      <!--商品介绍-->\r\n      <div id=\"goodsTabs\" class=\"goods-tab\">\r\n        <!--选项卡-->\r\n        <div id=\"tabHead\" class=\"tab-head\">\r\n          <ul>\r\n            <li>\r\n              <a class=\"selected\" href=\"javascript:;\">商品介绍</a>\r\n            </li>\r\n            <li>\r\n              <a href=\"javascript:;\">商品评论</a>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n        <!--/选项卡-->\r\n        \r\n        <!--选项内容-->\r\n        <div class=\"tab-content entry\" style=\"display:block\">\r\n          ");
 	templateBuilder.Append(Utils.ObjectToStr(model.content));
-	templateBuilder.Append("\r\n      </div>\r\n    </div>\r\n    <!--/商品介绍-->\r\n    \r\n    <!--评论-->\r\n    <div id=\"commentPanel\" class=\"panel\" data-footer=\"none\">\r\n      <header>\r\n        <a onclick=\"$.ui.goBack();\" class=\"backButton\">返回</a>\r\n        <h1>商品评论</h1>\r\n        <a onclick=\"$.ui.toggleSideMenu()\" class=\"menuButton\"></a>\r\n      </header>\r\n      ");
+	templateBuilder.Append("\r\n        </div>\r\n        <div class=\"tab-content\">\r\n          <!--用户评论-->\r\n          ");
+	if (model.is_msg==1)
+	{
+
 
 	int comment_count = get_comment_count(model.id, "is_lock=0");
 
-	templateBuilder.Append("<!--取得评论总数-->\r\n      <script type=\"text/javascript\" src=\"");
+	templateBuilder.Append("<!--取得评论总数-->\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("css/validate.css\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("css/pagination.css\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/artdialog/ui-dialog.css\" />\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/jquery/jquery.form.min.js\"></");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("scripts/artdialog/dialog-plus-min.js\"></");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/jquery/Validform_v5.3.2_min.js\"></");
-	templateBuilder.Append("script>\r\n      <script type=\"text/javascript\" src=\"");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("scripts/lhgdialog/lhgdialog.js?skin=idialog\"></");
-	templateBuilder.Append("script>\r\n      <script type=\"text/javascript\">\r\n        //初始化评论列表\r\n		function InitCommentList(){\r\n			CommentAjaxList('#btnLoadComment','#comment_list',10,");
+	templateBuilder.Append("scripts/jquery/jquery.pagination.js\"></");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\">\r\n      $(function(){\r\n        //初始化评论列表\r\n        pageInitComment();\r\n        //初始化发表评论表单\r\n        AjaxInitForm('#comment_form', '#btnSubmit', 1, '', pageInitComment);\r\n      });\r\n      //初始化评论列表\r\n      function pageInitComment(){\r\n	AjaxPageList('#comment_list', '#pagination', 10, ");
 	templateBuilder.Append(Utils.ObjectToStr(comment_count));
-	templateBuilder.Append(",'");
+	templateBuilder.Append(", '");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/submit_ajax.ashx?action=comment_list&article_id=");
 	templateBuilder.Append(Utils.ObjectToStr(model.id));
-	templateBuilder.Append("');\r\n		}\r\n		//页面加载完毕事件\r\n		$(document).ready(function(){\r\n			//初始化评论列表\r\n			InitCommentList(); //加载第一页评论列表\r\n			//初始化发表评论表单\r\n			AjaxInitForm('#comment_form', '#btnSubmit', 1);\r\n        });\r\n		\r\n      </");
-	templateBuilder.Append("script>\r\n      <div class=\"section\">\r\n        <h1><span>共");
-	templateBuilder.Append(Utils.ObjectToStr(comment_count));
-	templateBuilder.Append("条评论</span>网友评论</h1>\r\n      </div>\r\n      <div>\r\n        <div class=\"comment-add\">\r\n          <form id=\"comment_form\" name=\"comment_form\" url=\"");
+	templateBuilder.Append("', '");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/images/user_avatar.png');\r\n      }\r\n    </");
+	templateBuilder.Append("script>\r\n    <div class=\"comment-add\">\r\n      <form id=\"comment_form\" name=\"comment_form\" url=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/submit_ajax.ashx?action=comment_add&article_id=");
 	templateBuilder.Append(Utils.ObjectToStr(model.id));
-	templateBuilder.Append("\">\r\n            <div><textarea id=\"txtContent\" name=\"txtContent\" rows=\"3\" placeholder=\"吐槽一下\" datatype=\"*\" nullmsg=\"请填写评论内容\" errormsg=\"请填写评论内容\" sucmsg=\" \"></textarea></div>\r\n            <div class=\"btn-list\">\r\n              <input id=\"btnSubmit\" name=\"submit\" type=\"submit\" value=\"发表\" class=\"btn\" />\r\n              <input id=\"txtCode\" name=\"txtCode\" type=\"text\" class=\"code\" maxlength=\"4\" placeholder=\"验证码\" datatype=\"s4-4\" nullmsg=\"请填写验证码\" errormsg=\"请填写4位验证码\" sucmsg=\" \" />\r\n              <a href=\"javascript:;\" onclick=\"ToggleCode(this, '");
+	templateBuilder.Append("\">\r\n        <div class=\"editor\">\r\n          <textarea id=\"txtContent\" name=\"txtContent\" class=\"input\" datatype=\"*\" sucmsg=\" \"></textarea>\r\n        </div>\r\n        <div class=\"subcon\">\r\n          <input id=\"btnSubmit\" name=\"submit\" class=\"btn right\" type=\"submit\" value=\"提交评论（Ctrl+Enter）\" />\r\n          <span>验证码：</span>\r\n          <input id=\"txtCode\" name=\"txtCode\" type=\"text\" class=\"input small\" datatype=\"s4-4\" errormsg=\"请填写4位验证码\" sucmsg=\" \" onkeydown=\"if(event.ctrlKey&&event.keyCode==13){document.getElementById('btnSubmit').click();return false};\"  />\r\n          <a href=\"javascript:;\" onclick=\"ToggleCode(this, '");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("tools/verify_code.ashx');return false;\"><img src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/verify_code.ashx\" width=\"80\" height=\"25\" style=\"vertical-align:middle;\" /> 看不清楚？</a>\r\n            </div>\r\n          </form>\r\n        </div>\r\n        <ol id=\"comment_list\" class=\"comment-list\">\r\n          <p class=\"nodata\">暂无评论，快来抢沙发吧！</p>\r\n        </ol>\r\n      </div>\r\n      ");
-	if (comment_count>0)
-	{
+	templateBuilder.Append("tools/verify_code.ashx\" width=\"80\" height=\"22\" style=\"vertical-align:middle;\" /> 看不清楚？</a>\r\n        </div>\r\n      </form>\r\n    </div>\r\n    \r\n    <div class=\"comment-box\">\r\n      <ol id=\"comment_list\" class=\"comment-list\"></ol>\r\n    </div>\r\n    <!--放置页码-->\r\n    <div class=\"page-box\" style=\"margin-left:-8px;\">\r\n      <div id=\"pagination\" class=\"digg\"></div>\r\n    </div>\r\n    <div class=\"line10\"></div>\r\n    <!--/放置页码-->");
 
-	templateBuilder.Append("\r\n      <div class=\"more-comment\">\r\n        <input id=\"btnLoadComment\" type=\"button\" value=\"加载更多评论\" class=\"btn\" onclick=\"InitCommentList();\">\r\n      </div>\r\n      ");
+
 	}	//end for if
 
+	templateBuilder.Append("\r\n          <!--用户评论-->\r\n        </div>\r\n        <!--选项内容-->\r\n      </div>\r\n      <!--/商品介绍-->\r\n    </div>\r\n    <!--页面左边-->\r\n    \r\n    <!--页面右边-->\r\n    <div class=\"left211\">\r\n      <div class=\"sidebar-box\">\r\n        <div class=\"line30\"></div>\r\n        <h3>推荐商品</h3>\r\n        <div class=\"red-list\">\r\n          <ul>\r\n            ");
+	DataTable redPhoto = get_article_list(channel, 0, 4, "status=0 and is_red=1");
+
+	foreach(DataRow dr in redPhoto.Rows)
+	{
+
+	templateBuilder.Append("\r\n            <li>\r\n              <a title=\"" + Utils.ObjectToStr(dr["title"]) + "\" href=\"");
+	templateBuilder.Append(linkurl("goods_show",Utils.ObjectToStr(dr["id"])));
+
+	templateBuilder.Append("\">\r\n                <div class=\"img-box\">\r\n                  <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" />\r\n                </div>\r\n                <span>" + Utils.ObjectToStr(dr["title"]) + "</span>\r\n              </a>\r\n            </li>\r\n            ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n          </ul>\r\n        </div>\r\n        <div class=\"line10\"></div>\r\n        <h3>人气排行</h3>\r\n        <ul class=\"rank-list\">\r\n          ");
+	DataTable hotGoods = get_article_list(channel, 0, 10, "status=0", "click desc,id desc");
+
+	int hotdr__loop__id=0;
+	foreach(DataRow hotdr in hotGoods.Rows)
+	{
+		hotdr__loop__id++;
 
 
-	templateBuilder.Append("\r\n    </div>\r\n    <!--/评论-->\r\n      \r\n  </div>\r\n</div>\r\n</body>\r\n</html>\r\n");
+	if (hotdr__loop__id==1)
+	{
+
+	templateBuilder.Append("\r\n          <li class=\"active\">\r\n          ");
+	}
+	else
+	{
+
+	templateBuilder.Append("\r\n          <li>\r\n          ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n            <span>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(hotdr["add_time"])).ToString("MM-dd"));
+
+	templateBuilder.Append("</span>\r\n            <i class=\"num\">");
+	templateBuilder.Append(hotdr__loop__id.ToString());
+
+	templateBuilder.Append("</i><a href=\"");
+	templateBuilder.Append(linkurl("goods_show",Utils.ObjectToStr(hotdr["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(hotdr["title"]) + "</a>\r\n          </li>\r\n          ");
+	}	//end for if
+
+	templateBuilder.Append("\r\n        </ul>\r\n      </div>\r\n    </div>\r\n    <!--/页面右边-->\r\n  \r\n  </div>\r\n</div>\r\n\r\n<!--Footer-->\r\n");
+
+	templateBuilder.Append("<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"#\">首 页</a>|\r\n      <a target=\"_blank\" href=\"#\">关于我们</a>|\r\n      <a target=\"_blank\" href=\"#\">新闻资讯</a>|\r\n      <a target=\"_blank\" href=\"#\">视频专区</a>|\r\n      <a target=\"_blank\" href=\"#\">资源下载</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("photo"));
+
+	templateBuilder.Append("\">图片分享</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("feedback"));
+
+	templateBuilder.Append("\">留言反馈</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("link"));
+
+	templateBuilder.Append("\">友情链接</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("content","contact"));
+
+	templateBuilder.Append("\">联系我们</a>\r\n  </div>\r\n  <div class=\"copyright\">\r\n    <p>版权所有 ");
+	templateBuilder.Append(site.company.ToString());
+
+	templateBuilder.Append(" 粤ICP备11064298号 DTcms版本号：");
+	templateBuilder.Append(Utils.GetVersion().ToString());
+
+	templateBuilder.Append(" </p>\r\n    <p>Copyright &copy; 20015-2016  Corporation,All Rights Reserved.</p>\r\n    <p><script src=\"\" language=\"javascript\"></");
+	templateBuilder.Append("script></p>\r\n  </div>\r\n</div>");
+
+
+	templateBuilder.Append("\r\n<!--/Footer-->\r\n</body>\r\n</html>");
 	Response.Write(templateBuilder.ToString());
 }
 </script>

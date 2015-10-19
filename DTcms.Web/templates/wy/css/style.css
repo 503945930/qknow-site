@@ -82,15 +82,15 @@ input.btn, button.btn{ height:40px; cursor:pointer; overflow:visible; }
 /*页面布局
 ----------------------------------------------*/
 body{ text-align:center; background:#fff; *position:relative; }
-.section{ position:relative; margin:0 auto; padding:0; width:1180px; min-width:941px; max-width:1180px; text-align:left; overflow:hidden; }
-.wrapper{ position:relative; margin:0 auto; width:100%; height:288px; overflow:hidden; }
+.section{ position:relative; margin:0 auto; padding:0; width:1180px; min-width:941px; max-width:1180px; text-align:left; }
+.wrapper{ position:relative; margin:0 auto; width:100%; }
 	.wrapper.igoods{ height:327px; }
 	.wrapper.auto{ height:auto; }
 	.wrapper:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
-.main-left{ position:relative; float:left; margin:15px 15px 0 0; width:463px; height:273px; overflow:hidden; }
+.main-left{ position:relative; float:left; margin:15px 15px 0 0; width:463px;}
 .main-right{ position:absolute; top:0; right:0; bottom:0; left:478px; overflow:hidden; }
-.sidebar-left{ float:left; margin:15px 15px 0 0; width:941px; height:273px; overflow:hidden; }
-.sidebar-right{ float:left; width:224px; height:288px; overflow:hidden; }
+.sidebar-left{ float:left; margin:15px 15px 0 0; width:941px; }
+.sidebar-right{ float:left; width:224px; overflow:hidden; }
 .list-auto{ position:relative; display:block; margin:0 340px 0 0; overflow:hidden; _zoom:1; }
 .list-right{ position:relative; display:block; float:right; width:300px; overflow:hidden; }
 .main-wrap{ position:relative; margin:0 auto; padding:0; width:1180px; text-align:left; overflow:hidden; }
@@ -106,11 +106,13 @@ body{ text-align:center; background:#fff; *position:relative; }
 /*页面头部
 ----------------------------------------------*/
 .header{ width:100%; height:55px; }
-	.header-wrap{ position:fixed; top:0; left:0; width:100%; height:55px; text-align:center; background:rgba(48,131,235,0.9); *background:#3083eb; *filter:alpha(opacity=90); z-index:300; }
-	.header-wrap .left-box .logo{ margin:0 20px 0 0; display:block; float:left; width:110px; height:55px; text-indent:-9999px; background:url(../images/logo.png) no-repeat 0 center; overflow:hidden; }
-	.header-wrap .left-box .nav{ display:inline-block; float:left; height:55px; font-size:14px; letter-spacing:1px; }
-	.header-wrap .left-box .nav a{ display:inline-block; margin:10px 0; padding:0 8px; line-height:35px; height:35px;  color:#fff; opacity:0.9; }
-	.header-wrap .left-box .nav a:hover{ border-radius:3px; color:#fff; background:#104C99; }
+	.header-wrap{ position:fixed; top:0; left:0; width:100%; height:55px; text-align:center; background:#36364c; *background:#3083eb; *filter:alpha(opacity=90); z-index:300; }
+	.header-wrap .left-box .logo{ margin:0 20px 0 0; display:block; float:left; width:120px; height:55px; text-indent:-9999px; background:url(../images/logo1.png) no-repeat 0 center; overflow:hidden;background-size:100% 80%; }
+	.header-wrap .left-box .nav{ display:inline-block; float:left; height:56px; font-size:15px; letter-spacing:0.3em;margin-left:20px; }
+	.header-wrap .left-box .nav li{float:left;height:56px;margin-left:10px;border-radius:7px;  line-height:56px;   }
+    .header-wrap .left-box .nav li a {display:block;height:56px;padding:0 0.7em 0 1em;color:#fff; opacity:0.9;}
+    .header-wrap .left-box .nav li a:hover{ color:#fff; background:#eee; color:#222; opacity:0.9;}
+    .header-wrap .left-box .nav .letter {letter-spacing:1em;padding:0 0 0 1em;}
 	.header-wrap .search{ position:relative; display:block; float:left; margin:13px 0 0 20px; }
 	.header-wrap .search .input{ display:block; margin:0; padding:3px 30px 3px 10px; width:150px; height:20px; line-height:20px; color:#fff; border:1px solid #76b5dc; border-radius:2px; background:none; }
 	.header-wrap .search .submit{ position:absolute; top:0; right:0; display:block; width:30px; height:28px; line-height:30px; text-indent:-9999px; color:#fff; border:none; background:url(../images/search.png) no-repeat center; cursor:pointer; _text-indent:0; overflow:hidden; }
@@ -142,10 +144,10 @@ body{ text-align:center; background:#fff; *position:relative; }
 .ntitle{ margin:0 auto; padding:30px 0 0; width:100%; }
 	.ntitle:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
 	.ntitle h2{ display:inline-block; float:left; padding-right:10px; width:auto; color:#333; font-size:24px; font-weight:400; line-height:25px; }
-	.ntitle h2 a{ position:relative; padding-right:25px; color:#888; }
+	.ntitle h2 a{ position:relative; padding-right:25px; color:#888; text-align:center}
 	.ntitle h2 a:hover{ color:#f06000; text-decoration:none; }
 	.ntitle h2 a em{ display:block; position:absolute; right:-4px; top:8px; width:9px; height:17px; background:url(../images/slider.png) -359px -87px no-repeat; }
-	.ntitle p{ display:inline-block; float:left; padding-top:3px; line-height:18px; color:#888; font-size:14px; }
+	.new_title{ display:inline-block; float:left; padding-top:3px; line-height:18px; color:#888; font-size:14px;margin:auto; }
 	.ntitle p a{ margin-left:10px; padding:0 0 0 15px; color:#888; font-size:14px; background:url(../images/line.png) left center no-repeat; }
 	.ntitle p a:hover{ color:#f06000; }
 	.ntitle p a.no-bg{ background:none; }
@@ -153,6 +155,9 @@ body{ text-align:center; background:#fff; *position:relative; }
 	.ntitle span{ display:inline-block; float:right; line-height:18px; color:#999; font-size:12px; }
 	.ntitle span a{ color:#999; }
 	.ntitle span a:hover{ color:#0089CD; }
+.course-down {width:240px;height:58px;background:url(../images/xw.png) no-repeat center;float:left}
+.course-down p {line-height:48px;text-align:center;font-size:24px;margin-left:51px;color:#fff;font-family:'Microsoft YaHei'}
+.nav {line-height:58px;font-size:14px;}
 
 /*图片列表*/
 .img-list{ margin:0 0 0 -15px; *display:inline-block; }
