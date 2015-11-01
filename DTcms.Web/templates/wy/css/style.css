@@ -171,14 +171,15 @@ body{ text-align:center; background:#fff; *position:relative; }
 	.photo-list:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
 	.photo-list ul{ width:956px; }
 	.photo-list ul li{ position:relative; _display:inline; float:left; margin:15px 0 0 15px; width:224px; height:129px; overflow:hidden; background:#fff; }
-	.photo-list ul li.col-1{ margin-left:0; width:463px; height:273px; }
+	/*.photo-list ul li.col-1{ margin-left:0; width:463px; height:273px; }*/
+    .photo-list ul li.col-1{ margin-left:0; width:224px; height:129px; }
 	.photo-list ul li.col-6{ position:absolute; top:15px; left:956px; margin:0; height:273px; }
 /*遮罩样式*/	
 .ilist a{ position:absolute; display:block; top:0; right:0; bottom:0; left:0; border:2px solid #f7f7f7; cursor:pointer; _position:relative; overflow:hidden; }
 	.ilist a:hover em{ position:absolute; top:50%; left:50%; display:block; margin:-30px auto auto -30px; height:60px; width:60px; background:url(../images/slider.png) no-repeat 0 0; }
 	.ilist a img{ width:100%; min-width:100%; min-height:100%; _height:100%; }
 	.ilist .abs-txt{ position:absolute; top:0; left:0; display:inline-block; padding:0 5px; border-radius:2px; color:#fff; font-size:12px; line-height:23px; background:#f06000; text-align:center; }
-	.ilist .abs-bg{ position:absolute; left:0; right:0; bottom:0; display:block; height:125px; background:url(../images/pic-bg.png) 0 bottom repeat-x; _background:url(none) 0 0 repeat #000; width:100%; _height:50px; }
+	/*.ilist .abs-bg{ position:absolute; left:0; right:0; bottom:0; display:block; height:125px; background:url(../images/pic-bg.png) 0 bottom repeat-x; _background:url(none) 0 0 repeat #000; width:100%; _height:50px; }*/
 	.ilist .txt1{ position:absolute; left:0; right:0; bottom:20px; display:block; padding:0 5px; height:24px; line-height:24px; color:#fff; font-size:14px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
 	.ilist .txt2{ position:absolute; left:0; right:0; bottom:3px; display:block; padding:0 5px; height:20px; line-height:20px; color:#bdbdbd; font-size:12px; overflow:hidden; }
 	.ilist .txt2 p{ display:block; }
@@ -659,3 +660,15 @@ body{ text-align:center; background:#fff; *position:relative; }
 @media only screen and (min-width:1181px) {
 	.section{ width:1180px; }
 }
+
+
+
+/*网页教程*/
+
+
+.wrapper ul a:hover{
+      -webkit-animation: pulse 1s;
+    animation: pulse 1s;
+}
+
+/*网页教程 end*/

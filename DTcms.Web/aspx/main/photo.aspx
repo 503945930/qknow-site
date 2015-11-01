@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/11/1 星期日 下午 3:44:06.
-		本页面代码由DTcms模板引擎生成于 2015/11/1 星期日 下午 3:44:06. 
+		This page was created by DTcms Template Engine at 2015/11/1 星期日 下午 5:13:42.
+		本页面代码由DTcms模板引擎生成于 2015/11/1 星期日 下午 5:13:42. 
 	*/
 
 	base.OnInit(e);
@@ -42,22 +42,22 @@ override protected void OnInit(EventArgs e)
 
 	templateBuilder.Append("\">");
 	templateBuilder.Append(Utils.ObjectToStr(site.name));
-	templateBuilder.Append("</a>\r\n        <ul class=\"nav\">\r\n            <li><a href=\"/\"  class=\"letter\">首页</a></li>\r\n            <li><a  href=\"");
+	templateBuilder.Append("</a>\r\n        <ul class=\"nav\">\r\n            <li><a href=\"/index.html\" target=\"_blank\" class=\"letter\">首页</a></li>\r\n            <li><a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("news"));
 
-	templateBuilder.Append("\">新闻资讯</a></li>             \r\n            <li><a  href=\"");
+	templateBuilder.Append("\">新闻资讯</a></li>             \r\n            <li><a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("wytx"));
 
-	templateBuilder.Append("\"  >网页特效</a></li>\r\n            <li><a  href=\"");
+	templateBuilder.Append("\"  >网页特效</a></li>\r\n            <li><a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("wymb"));
 
-	templateBuilder.Append("\">网页模板</a></li>\r\n            <li><a  href=\"");
+	templateBuilder.Append("\">网页模板</a></li>\r\n            <li><a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("wyjc"));
 
-	templateBuilder.Append("\">网页教程</a></li>\r\n            <li><a  href=\"");
+	templateBuilder.Append("\">网页教程</a></li>\r\n            <li><a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("pmjc"));
 
-	templateBuilder.Append("\">平面教程</a></li>\r\n            <li><a  href=\"");
+	templateBuilder.Append("\">平面教程</a></li>\r\n            <li><a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("ymxz"));
 
 	templateBuilder.Append("\">源码下载</a></li>\r\n            \r\n        </ul>\r\n      </div>\r\n      <div class=\"search right-box\">\r\n        <input id=\"keywords\" name=\"keywords\" class=\"input\" type=\"text\" onkeydown=\"if(event.keyCode==13){SiteSearch('");
@@ -66,7 +66,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("', '#keywords');return false};\" placeholder=\"输入回车搜索\" x-webkit-speech=\"\" />\r\n        <input class=\"submit\" type=\"submit\" onclick=\"SiteSearch('");
 	templateBuilder.Append(linkurl("search"));
 
-	templateBuilder.Append("', '#keywords');\" value=\"搜索\" />\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n</div>\r\n<script type=\"text/javascript\">\r\n    $(function(){\r\n        $(\".header-wrap .left-box .nav li a\").hover(function(){\r\n            $(this).addClass('animated jello');\r\n        },function(){\r\n            $(this).removeClass('animated jello');\r\n            //$('.header-wrap .left-box .nav li ').removeClass('animated bounceOutLeft');\r\n            //$(this).addClass('animated bounceInRight');\r\n        });\r\n    });\r\n</");
+	templateBuilder.Append("', '#keywords');\" value=\"搜索\" />\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n</div>\r\n<script type=\"text/javascript\">\r\n    $(function(){\r\n        $(\".header-wrap .left-box .nav li a\").hover(function(){\r\n            $(this).addClass('animated jello');\r\n        },function(){\r\n            $(this).removeClass('animated jello');\r\n            //$('.header-wrap .left-box .nav li ').removeClass('animated bounceOutLeft');\r\n            //$(this).addClass('animated bounceInRight');\r\n        });\r\n\r\n        \r\n\r\n    \r\n\r\n    });\r\n</");
 	templateBuilder.Append("script>");
 
 

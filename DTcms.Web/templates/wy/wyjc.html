@@ -68,7 +68,7 @@
       <%set DataTable dt=get_article_list(channel, {strtoint({cdr[id]})}, 5, "status=0")%>
       <%foreach(DataRow dr1 in dt.Rows)%>
       <li>
-        <a title="{dr1[title]}" href="<%linkurl("wyjc_show",{dr1[id]})%>">
+        <a title="{dr1[title]}"   href="<%linkurl("wyjc_show",{dr1[id]})%>">
           <div class="img-box">
             <img src="{dr1[img_url]}" />
           </div>
