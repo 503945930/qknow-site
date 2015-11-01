@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<%set string category_title=get_category_title(model.category_id,"新闻资讯")%>
+<%set string category_title=get_category_title(model.category_id,"平面教程")%>
 <title>{model.title} - {category_title} - {site.name}</title>
 <meta content="{model.seo_keywords}" name="keywords" />
 <meta content="{model.seo_description}" name="description" />
@@ -151,5 +151,8 @@
 <!--Footer-->
 <%template src="_footer.html"%>
 <!--/Footer-->
+    <script type="text/javascript">
+        $(".nav li").eq(5).addClass('sel');
+    </script>
 </body>
 </html>

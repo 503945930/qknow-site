@@ -98,8 +98,8 @@
     
     <!--上下篇-->
     <div class="next-prev-single">
-      <p class="prev">上一篇：<%=get_prevandnext_article("news_show", -1, "没有了", 0)%></p>
-	  <p class="next">下一篇：<%=get_prevandnext_article("news_show", 1, "没有了", 0)%></p>
+      <p class="prev">上一篇：<%=get_prevandnext_article("wyjc_show", -1, "没有了", 0)%></p>
+	  <p class="next">下一篇：<%=get_prevandnext_article("wyjc_show", 1, "没有了", 0)%></p>
     </div>
     <!--/上下篇-->
     
@@ -151,5 +151,8 @@
 <!--Footer-->
 <%template src="_footer.html"%>
 <!--/Footer-->
+    <script type="text/javascript">
+        $(".nav li").eq(4).addClass('sel');
+    </script>
 </body>
 </html>

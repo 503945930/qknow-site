@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/10/19 星期一 下午 6:39:18.
-		本页面代码由DTcms模板引擎生成于 2015/10/19 星期一 下午 6:39:18. 
+		This page was created by DTcms Template Engine at 2015/10/20 星期二 下午 2:13:44.
+		本页面代码由DTcms模板引擎生成于 2015/10/20 星期二 下午 2:13:44. 
 	*/
 
 	base.OnInit(e);
@@ -73,24 +73,24 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\r\n<!--/Header-->\r\n\r\n<div class=\"section clearfix\">\r\n  <div class=\"ntitle\">\r\n    <h2>\r\n      <a href=\"javascript:;\">");
 	templateBuilder.Append(Utils.ObjectToStr(model.title));
 	templateBuilder.Append("</a>\r\n    </h2>\r\n    ");
-	string category_nav = get_category_menu("news_list", category_id);
+	string category_nav = get_category_menu("pmjc_list", category_id);
 
 	templateBuilder.Append("\r\n    <span>当前位置：<a href=\"");
 	templateBuilder.Append(linkurl("index"));
 
 	templateBuilder.Append("\">首页</a> &gt; <a href=\"");
-	templateBuilder.Append(linkurl("news"));
+	templateBuilder.Append(linkurl("pmjc"));
 
-	templateBuilder.Append("\">新闻资讯</a>");
+	templateBuilder.Append("\">平面教程</a>");
 	templateBuilder.Append(Utils.ObjectToStr(category_nav));
-	templateBuilder.Append("</span>\r\n  </div>\r\n  \r\n  <!--右边-->\r\n  <div class=\"list-right\">\r\n    <div class=\"sidebar-box\">\r\n      <div class=\"line30\"></div>\r\n      <h3>资讯类别</h3>\r\n      <ul class=\"navbar\">\r\n        ");
+	templateBuilder.Append("</span>\r\n  </div>\r\n  \r\n  <!--右边-->\r\n  <div class=\"list-right\">\r\n    <div class=\"sidebar-box\">\r\n      <div class=\"line30\"></div>\r\n      <h3>教程类别</h3>\r\n      <ul class=\"navbar\">\r\n        ");
 	DataTable categoryList1 = get_category_child_list(channel, 0);
 
 	foreach(DataRow cdr1 in categoryList1.Rows)
 	{
 
 	templateBuilder.Append("\r\n        <li>\r\n          <h4><a href=\"");
-	templateBuilder.Append(linkurl("news_list",Utils.ObjectToStr(cdr1["id"])));
+	templateBuilder.Append(linkurl("pmjc_list",Utils.ObjectToStr(cdr1["id"])));
 
 	templateBuilder.Append("\">" + Utils.ObjectToStr(cdr1["title"]) + "</a></h4>\r\n          <p>\r\n            ");
 	DataTable categoryList2 = get_category_child_list(channel, Utils.StrToInt(Utils.ObjectToStr(cdr1["id"]), 0));
@@ -102,7 +102,7 @@ override protected void OnInit(EventArgs e)
 	{
 
 	templateBuilder.Append("\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("news_list",Utils.ObjectToStr(cdr2["id"])));
+	templateBuilder.Append(linkurl("pmjc_list",Utils.ObjectToStr(cdr2["id"])));
 
 	templateBuilder.Append("\" class=\"selected\">" + Utils.ObjectToStr(cdr2["title"]) + "</a>\r\n            ");
 	}
@@ -110,7 +110,7 @@ override protected void OnInit(EventArgs e)
 	{
 
 	templateBuilder.Append("\r\n            <a href=\"");
-	templateBuilder.Append(linkurl("news_list",Utils.ObjectToStr(cdr2["id"])));
+	templateBuilder.Append(linkurl("pmjc_list",Utils.ObjectToStr(cdr2["id"])));
 
 	templateBuilder.Append("\">" + Utils.ObjectToStr(cdr2["title"]) + "</a>\r\n            ");
 	}	//end for if
@@ -127,7 +127,7 @@ override protected void OnInit(EventArgs e)
 	{
 
 	templateBuilder.Append("\r\n          <li>\r\n            <a title=\"" + Utils.ObjectToStr(dr["title"]) + "\" href=\"");
-	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(dr["id"])));
+	templateBuilder.Append(linkurl("pmjc_show",Utils.ObjectToStr(dr["id"])));
 
 	templateBuilder.Append("\">\r\n              <b><img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" /></b>\r\n              <span>" + Utils.ObjectToStr(dr["title"]) + "</span>\r\n            </a>\r\n          </li>\r\n          ");
 	}	//end for if
@@ -158,7 +158,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append(hotdr__loop__id.ToString());
 
 	templateBuilder.Append("</i><a href=\"");
-	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(hotdr["id"])));
+	templateBuilder.Append(linkurl("pmjc_show",Utils.ObjectToStr(hotdr["id"])));
 
 	templateBuilder.Append("\">" + Utils.ObjectToStr(hotdr["title"]) + "</a>\r\n        </li>\r\n        ");
 	}	//end for if
@@ -171,7 +171,7 @@ override protected void OnInit(EventArgs e)
 	{
 
 	templateBuilder.Append("\r\n      <li>\r\n        <h2><a href=\"");
-	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(dr["id"])));
+	templateBuilder.Append(linkurl("pmjc_show",Utils.ObjectToStr(dr["id"])));
 
 	templateBuilder.Append("\">" + Utils.ObjectToStr(dr["title"]) + "</a></h2>\r\n        <div class=\"note\">\r\n          ");
 	if (Utils.ObjectToStr(dr["img_url"])!="")
@@ -193,29 +193,36 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append(Utils.ObjectToStr(pagelist));
 	templateBuilder.Append("</div>\r\n    </div>\r\n    <!--/页码列表-->\r\n  </div>\r\n  <!--/左边-->\r\n\r\n</div>\r\n\r\n<!--Footer-->\r\n");
 
-	templateBuilder.Append("<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"#\">首 页</a>|\r\n      <a target=\"_blank\" href=\"#\">关于我们</a>|\r\n      <a target=\"_blank\" href=\"#\">新闻资讯</a>|\r\n      <a target=\"_blank\" href=\"#\">视频专区</a>|\r\n      <a target=\"_blank\" href=\"#\">资源下载</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append("<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"/index.html\">首 页</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("news"));
+
+	templateBuilder.Append("\">新闻资讯</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("wytx"));
+
+	templateBuilder.Append("\">网页特效</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("wymb"));
+
+	templateBuilder.Append("\">网页模板</a>|\r\n    <a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("photo"));
 
-	templateBuilder.Append("\">图片分享</a>|\r\n    <a target=\"_blank\" href=\"");
-	templateBuilder.Append(linkurl("feedback"));
+	templateBuilder.Append("\">网页教程</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("pmjc"));
 
-	templateBuilder.Append("\">留言反馈</a>|\r\n    <a target=\"_blank\" href=\"");
-	templateBuilder.Append(linkurl("link"));
+	templateBuilder.Append("\">平面教程</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("ymxz"));
 
-	templateBuilder.Append("\">友情链接</a>|\r\n    <a target=\"_blank\" href=\"");
-	templateBuilder.Append(linkurl("content","contact"));
-
-	templateBuilder.Append("\">联系我们</a>\r\n  </div>\r\n  <div class=\"copyright\">\r\n    <p>版权所有 ");
+	templateBuilder.Append("\">源码下载</a>\r\n  </div>\r\n  <div class=\"copyright\">\r\n    <p>版权所有 ");
 	templateBuilder.Append(site.company.ToString());
 
-	templateBuilder.Append(" 粤ICP备11064298号 DTcms版本号：");
+	templateBuilder.Append(" 沪ICP备14041733号 版本号：");
 	templateBuilder.Append(Utils.GetVersion().ToString());
 
-	templateBuilder.Append(" </p>\r\n    <p>Copyright &copy; 20015-2016  Corporation,All Rights Reserved.</p>\r\n    <p><script src=\"\" language=\"javascript\"></");
+	templateBuilder.Append(" </p>\r\n    <p>Copyright &copy; 2015-  Corporation,All Rights Reserved.</p>\r\n    <p><script src=\"\" language=\"javascript\"></");
 	templateBuilder.Append("script></p>\r\n  </div>\r\n</div>");
 
 
-	templateBuilder.Append("\r\n<!--/Footer-->\r\n</body>\r\n</html>");
+	templateBuilder.Append("\r\n<!--/Footer-->\r\n    <script type=\"text/javascript\">\r\n        $(\".nav li\").eq(5).addClass('sel');\r\n    </");
+	templateBuilder.Append("script>\r\n</body>\r\n</html>");
 	Response.Write(templateBuilder.ToString());
 }
 </script>

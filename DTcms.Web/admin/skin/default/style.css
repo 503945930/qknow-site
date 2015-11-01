@@ -11,7 +11,7 @@ a:active, a:hover{ color:#0065D9; text-decoration:underline; }
 
 /* =========================登录页样式.开始======================= */
 .login-wrap{ position:absolute; top:50%; left:50%; margin:-150px auto auto -140px; width:280px; text-align:center; }
-	.login-logo{ margin:0 auto 10px; text-indent:-9999em; width:160px; height:42px; background:url(logo.png) no-repeat; }
+	.login-logo{ margin:0 auto; text-indent:-9999em; width:150px; height:56px; background:url(logo.png) no-repeat; }
 	.login-form .col{ position:relative; padding:10px 0; }
 	.login-form .col .icon{ position:absolute; display:block; top:24px; left:10px; width:14px; height:14px; background:url(skin_icons.png) no-repeat; cursor:pointer; }
 	.login-form .col .icon.user{ background-position:0 -140px; }
@@ -52,7 +52,7 @@ a:active, a:hover{ color:#0065D9; text-decoration:underline; }
 
 /*左边样式*/
 .main-left{ background:#267cb7; }
-	.logo{ display:block; height:42px; background:url(logo.png) no-repeat center #fafafa; border:1px solid #eee; border-top:0; border-left:0; text-indent:-9999px; overflow:hidden; }
+	.logo{ display:block; height:42px; background:url(logo.png) no-repeat center #36364c; border:1px solid #eee; border-top:0; border-left:0; text-indent:-9999px; overflow:hidden; }
 	.sidebar-nav{ }
 		.sidebar-nav .list-group{ display:none; }
 		.sidebar-nav .list-group .list-wrap{ position:absolute; top:43px; right:0; bottom:0; left:0; padding:0 10px; width:160px; overflow:auto; }

@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/10/20 星期二 上午 12:04:18.
-		本页面代码由DTcms模板引擎生成于 2015/10/20 星期二 上午 12:04:18. 
+		This page was created by DTcms Template Engine at 2015/10/21 星期三 下午 10:26:40.
+		本页面代码由DTcms模板引擎生成于 2015/10/21 星期三 下午 10:26:40. 
 	*/
 
 	base.OnInit(e);
@@ -415,25 +415,31 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append(Utils.ObjectToStr(pagelist));
 	templateBuilder.Append("</div>\r\n    </div>\r\n    <!--/页码列表-->\r\n    \r\n  </div>\r\n</div>\r\n\r\n<!--Footer-->\r\n");
 
-	templateBuilder.Append("<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"#\">首 页</a>|\r\n      <a target=\"_blank\" href=\"#\">关于我们</a>|\r\n      <a target=\"_blank\" href=\"#\">新闻资讯</a>|\r\n      <a target=\"_blank\" href=\"#\">视频专区</a>|\r\n      <a target=\"_blank\" href=\"#\">资源下载</a>|\r\n    <a target=\"_blank\" href=\"");
+	templateBuilder.Append("<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"/index.html\">首 页</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("news"));
+
+	templateBuilder.Append("\">新闻资讯</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("wytx"));
+
+	templateBuilder.Append("\">网页特效</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("wymb"));
+
+	templateBuilder.Append("\">网页模板</a>|\r\n    <a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("photo"));
 
-	templateBuilder.Append("\">图片分享</a>|\r\n    <a target=\"_blank\" href=\"");
-	templateBuilder.Append(linkurl("feedback"));
+	templateBuilder.Append("\">网页教程</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("pmjc"));
 
-	templateBuilder.Append("\">留言反馈</a>|\r\n    <a target=\"_blank\" href=\"");
-	templateBuilder.Append(linkurl("link"));
+	templateBuilder.Append("\">平面教程</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append(linkurl("ymxz"));
 
-	templateBuilder.Append("\">友情链接</a>|\r\n    <a target=\"_blank\" href=\"");
-	templateBuilder.Append(linkurl("content","contact"));
-
-	templateBuilder.Append("\">联系我们</a>\r\n  </div>\r\n  <div class=\"copyright\">\r\n    <p>版权所有 ");
+	templateBuilder.Append("\">源码下载</a>\r\n  </div>\r\n  <div class=\"copyright\">\r\n    <p>版权所有 ");
 	templateBuilder.Append(site.company.ToString());
 
-	templateBuilder.Append(" 粤ICP备11064298号 DTcms版本号：");
+	templateBuilder.Append(" 沪ICP备14041733号 版本号：");
 	templateBuilder.Append(Utils.GetVersion().ToString());
 
-	templateBuilder.Append(" </p>\r\n    <p>Copyright &copy; 20015-2016  Corporation,All Rights Reserved.</p>\r\n    <p><script src=\"\" language=\"javascript\"></");
+	templateBuilder.Append(" </p>\r\n    <p>Copyright &copy; 2015-  Corporation,All Rights Reserved.</p>\r\n    <p><script src=\"\" language=\"javascript\"></");
 	templateBuilder.Append("script></p>\r\n  </div>\r\n</div>");
 
 

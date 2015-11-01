@@ -224,6 +224,9 @@
     <Content Include="aspx\main\photo.aspx" />
     <Content Include="aspx\main\photo_list.aspx" />
     <Content Include="aspx\main\photo_show.aspx" />
+    <Content Include="aspx\main\pmjc.aspx" />
+    <Content Include="aspx\main\pmjc_list.aspx" />
+    <Content Include="aspx\main\pmjc_show.aspx" />
     <Content Include="aspx\main\register.aspx" />
     <Content Include="aspx\main\repassword.aspx" />
     <Content Include="aspx\main\search.aspx" />
@@ -240,6 +243,18 @@
     <Content Include="aspx\main\video.aspx" />
     <Content Include="aspx\main\video_list.aspx" />
     <Content Include="aspx\main\video_show.aspx" />
+    <Content Include="aspx\main\wyjc.aspx" />
+    <Content Include="aspx\main\wyjc_list.aspx" />
+    <Content Include="aspx\main\wyjc_show.aspx" />
+    <Content Include="aspx\main\wymb.aspx" />
+    <Content Include="aspx\main\wymb_list.aspx" />
+    <Content Include="aspx\main\wymb_show.aspx" />
+    <Content Include="aspx\main\wytx.aspx" />
+    <Content Include="aspx\main\wytx_list.aspx" />
+    <Content Include="aspx\main\wytx_show.aspx" />
+    <Content Include="aspx\main\ymxz.aspx" />
+    <Content Include="aspx\main\ymxz_list.aspx" />
+    <Content Include="aspx\main\ymxz_show.aspx" />
     <Content Include="aspx\mobile\cart.aspx" />
     <Content Include="aspx\mobile\content.aspx" />
     <Content Include="aspx\mobile\down.aspx" />
@@ -2057,6 +2072,8 @@
     <Content Include="obj\Debug\TransformWebConfig\original\Web.config" />
     <Content Include="obj\Debug\TransformWebConfig\transformed\Web.config" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="Properties\PublishProfiles\dtcms.config.pubxml" />
+    <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
     <None Include="templates\mobile\jqmobi\css\src\afui.less" />
     <None Include="templates\mobile\jqmobi\plugins\README.md" />
     <None Include="templates\mobile\jqmobi\ui\README.md" />

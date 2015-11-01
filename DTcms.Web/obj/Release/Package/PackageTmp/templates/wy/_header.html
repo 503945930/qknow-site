@@ -1,0 +1,24 @@
+﻿<div class="header">
+  <div class="header-wrap">
+    <div class="section">
+      <div class="left-box">
+        <a class="logo" href="<%linkurl("index")%>">{site.name}</a>
+        <ul class="nav">
+            <li><a href="/index.html" class="letter">首页</a></li>
+            <li><a href="<%linkurl("news")%>">新闻资讯</a></li> 
+            <li><a href="<%linkurl("wytx")%>">网页特效</a></li>
+          <li><a href="<%linkurl("wymb")%>">网页模板</a></li>
+          <li><a href="<%linkurl("wyjc")%>">网页教程</a></li>
+            <li><a href="<%linkurl("pmjc")%>">平面教程</a></li>
+            <li><a href="<%linkurl("ymxz")%>">源码下载</a></li>
+            
+        </ul>
+      </div>
+      <div class="search right-box">
+        <input id="keywords" name="keywords" class="input" type="text" onkeydown="if(event.keyCode==13){SiteSearch('<%linkurl("search")%>', '#keywords');return false};" placeholder="输入回车搜索" x-webkit-speech="" />
+        <input class="submit" type="submit" onclick="SiteSearch('<%linkurl("search")%>', '#keywords');" value="搜索" />
+      </div>
+      
+    </div>
+  </div>
+</div>
