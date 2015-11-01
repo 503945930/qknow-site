@@ -1183,6 +1183,7 @@
     <Content Include="templates\wy\about.xml" />
     <Content Include="templates\wy\cart.html" />
     <Content Include="templates\wy\content.html" />
+    <Content Include="templates\wy\css\animate.css" />
     <Content Include="templates\wy\css\flexslider.css" />
     <Content Include="templates\wy\css\lightbox.css" />
     <Content Include="templates\wy\css\style.css" />

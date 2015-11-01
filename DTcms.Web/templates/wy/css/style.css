@@ -166,7 +166,7 @@ body{ text-align:center; background:#fff; *position:relative; }
 .img-list{ margin:0 0 0 -15px; *display:inline-block; }
 	.img-list:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
 	.img-list li{ position:relative; _display:inline; float:left; margin:15px 0 0 15px; width:224px; height:129px; overflow:hidden; background:#fff; }
-	.img-list.high li{ height:273px; }
+	.img-list.high li{ height:193px; }
 .photo-list{ position:relative; width:1180px; overflow:hidden; }
 	.photo-list:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
 	.photo-list ul{ width:956px; }
@@ -188,7 +188,7 @@ body{ text-align:center; background:#fff; *position:relative; }
 	.ilist .price b{ margin-right:2px; font-size:14px; font-weight:700; }
 	.ilist .price i{ float:right; display:block; font-style:normal; color:#bdbdbd; font-size:12px; font-weight:normal; text-decoration:line-through; }
 	.ilist .protxt{ position:absolute; left:0; right:0; bottom:3px; display:block; padding:0 5px; height:20px; line-height:20px; color:#fff; font-size:12px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;  }
-	.ilist a .img-box{ position:relative; margin:10px 10px 5px 10px; width:200px; height:200px; overflow:hidden; background:#000; }
+	.ilist a .img-box{ position:relative; margin:10px 10px 5px 10px; width:200px; height:130px; overflow:hidden; background:#000; }
 	.ilist a .img-box img{ min-width:100%; min-height:100%; width:100%; _height:100%; }
 	.ilist a .info{ padding:0 10px; color:#999; }
 	.ilist a .info h3{ height:24px; line-height:24px; color:#555; font-size:14px; font-weight:normal; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
@@ -665,10 +665,23 @@ body{ text-align:center; background:#fff; *position:relative; }
 
 /*网页教程*/
 
-
+/*图片特效*/
 .wrapper ul a:hover{
-      -webkit-animation: pulse 1s;
+    -webkit-animation: pulse 1s;
     animation: pulse 1s;
 }
-
+.wrapper ul a{
+    -webkit-animation: slideInUp 1s;
+    animation: slideInUp 1s;
+}
 /*网页教程 end*/
+
+
+/*网页客服*/
+.customer{
+    position:fixed;
+    top:300px;
+    right:10px
+}
+
+/*网页客服 end*/
