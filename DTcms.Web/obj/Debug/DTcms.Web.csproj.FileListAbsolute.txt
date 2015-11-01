@@ -77,3 +77,23 @@ D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗�
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.Web\obj\Debug\DTcms.Web.csprojResolveAssemblyReference.cache
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.Web\obj\Debug\DTcms.Web.dll
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.Web\obj\Debug\DTcms.Web.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Web.dll.config
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Web.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Web.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.API.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.BLL.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Common.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Model.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Web.UI.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.DAL.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.DBUtility.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.API.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.BLL.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Common.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Model.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Web.UI.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.DAL.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.DBUtility.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\obj\Debug\DTcms.Web.csprojResolveAssemblyReference.cache
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\obj\Debug\DTcms.Web.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\obj\Debug\DTcms.Web.pdb

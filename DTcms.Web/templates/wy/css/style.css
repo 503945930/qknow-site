@@ -23,7 +23,7 @@ input::-moz-focus-inner,button::-moz-focus-inner{ border:0;padding:0;outline:0; 
 .clearfix:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
 .clearfix{ display:inline-block; } 
 /* Hide from IE Mac */ 
-.clearfix { display:block; } 
+.clearfix{display:block;}
 /* End hide from IE Mac */ 
 /* end of clearfix */ 
 .left{ float:left; }
@@ -109,9 +109,10 @@ body{ text-align:center; background:#fff; *position:relative; }
 	.header-wrap{ position:fixed; top:0; left:0; width:100%; height:55px; text-align:center; background:#36364c; *background:#3083eb; *filter:alpha(opacity=90); z-index:300; }
 	.header-wrap .left-box .logo{ margin:0 20px 0 0; display:block; float:left; width:120px; height:55px; text-indent:-9999px; background:url(../images/logo1.png) no-repeat 0 center; overflow:hidden;background-size:100% 80%; }
 	.header-wrap .left-box .nav{ display:inline-block; float:left; height:56px; font-size:15px; letter-spacing:0.3em;margin-left:20px; }
-	.header-wrap .left-box .nav li{float:left;height:56px;margin-left:10px;line-height:56px;   }
-    .header-wrap .left-box .nav li a {display:block;height:56px;padding:0 0.7em 0 1em; color:#fff;opacity:0.9;}
-    .header-wrap .left-box .nav li a:hover{background:#eee; color:#222; opacity:0.9;}
+	.header-wrap .left-box .nav li{float:left;height:56px;line-height:56px;   }
+    .header-wrap .left-box .nav li:first-child{width:109px }
+    .header-wrap .left-box .nav li a {display:block;height:56px;padding:0 0.7em 0 1em; color:#fff;opacity:0.9;font-size:16px;text-align:center;color: #838fa8;}
+    .header-wrap .left-box .nav li a:hover{ color:#fff;}
     .sel{ background:#eee;opacity:0.9;}
         .header-wrap .left-box .nav .sel a{color:#222}
     .header-wrap .left-box .nav .letter {letter-spacing:1em;padding:0 0 0 1em;}
@@ -147,11 +148,11 @@ body{ text-align:center; background:#fff; *position:relative; }
 	.ntitle:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
 	.ntitle h2{ display:inline-block; float:left; padding-right:10px; width:auto; color:#333; font-size:24px; font-weight:400; line-height:25px; }
 	.ntitle h2 a{ position:relative; padding-right:25px; color:#888; text-align:center}
-	.ntitle h2 a:hover{ color:#f06000; text-decoration:none; }
+	.ntitle h2 a:hover{ color:#85e1ff; text-decoration:none; }
 	.ntitle h2 a em{ display:block; position:absolute; right:-4px; top:8px; width:9px; height:17px; background:url(../images/slider.png) -359px -87px no-repeat; }
 	.new_title{ display:inline-block; float:left; padding-top:3px; line-height:18px; color:#888; font-size:14px;margin:auto; }
 	.ntitle p a{ margin-left:10px; padding:0 0 0 15px; color:#888; font-size:14px; background:url(../images/line.png) left center no-repeat; }
-	.ntitle p a:hover{ color:#f06000; }
+	.ntitle p a:hover{ color:#85e1ff; }
 	.ntitle p a.no-bg{ background:none; }
 	.ntitle i{ display:block; padding-top:10px; color:#999; font-size:14px; font-style:normal; line-height:1em; }
 	.ntitle span{ display:inline-block; float:right; line-height:18px; color:#999; font-size:12px; }
@@ -613,7 +614,7 @@ body{ text-align:center; background:#fff; *position:relative; }
 .section .wrapper.link-box{ height:auto; }
 	.link-box .txt{ display:block; margin-top:15px; letter-spacing:3px; color:#ccc; font-size:12px; line-height:30px; }
 	.link-box .txt a{ color:#888; letter-spacing:1px; }
-	.link-box .txt a:hover{ color:#f06000; }
+	.link-box .txt a:hover{ color:#85e1ff; }
 	.link-box .img{ margin-left:-15px; height:53px; overflow:hidden; }
 	.link-box .img li{ float:left; margin:15px 0 0 15px; width:104.5px; height:38px; _display:inline; }
 	.link-box .img li a{ position:relative; display:block; height:34px; border:2px solid #fff; }

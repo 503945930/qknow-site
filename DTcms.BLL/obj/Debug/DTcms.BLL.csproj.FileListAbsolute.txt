@@ -50,3 +50,16 @@ D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗�
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.BLL\obj\Debug\DTcms.BLL.csprojResolveAssemblyReference.cache
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.BLL\obj\Debug\DTcms.BLL.dll
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.BLL\obj\Debug\DTcms.BLL.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.BLL.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.BLL.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.Common.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.DAL.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.Model.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.DBUtility.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.Common.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.DAL.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.Model.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\bin\Debug\DTcms.DBUtility.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\obj\Debug\DTcms.BLL.csprojResolveAssemblyReference.cache
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\obj\Debug\DTcms.BLL.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.BLL\obj\Debug\DTcms.BLL.pdb

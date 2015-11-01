@@ -26,3 +26,10 @@ D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗�
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.csprojResolveAssemblyReference.cache
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.dll
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.DBUtility\bin\Debug\DTcms.DBUtility.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.DBUtility\bin\Debug\DTcms.DBUtility.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.DBUtility\bin\Debug\DTcms.Common.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.DBUtility\bin\Debug\DTcms.Common.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.csprojResolveAssemblyReference.cache
+D:\wwwroot\dtcms\qknow-site\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.pdb

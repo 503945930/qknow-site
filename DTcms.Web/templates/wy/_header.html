@@ -1,16 +1,17 @@
-﻿<div class="header">
+﻿<link href="<%templateskin%>/css/animate.css" rel="stylesheet" />
+<div class="header">
   <div class="header-wrap">
     <div class="section">
       <div class="left-box">
         <a class="logo" href="<%linkurl("index")%>">{site.name}</a>
         <ul class="nav">
-            <li><a href="/index.html" class="letter">首页</a></li>
-            <li><a href="<%linkurl("news")%>">新闻资讯</a></li> 
-            <li><a href="<%linkurl("wytx")%>">网页特效</a></li>
-          <li><a href="<%linkurl("wymb")%>">网页模板</a></li>
-          <li><a href="<%linkurl("wyjc")%>">网页教程</a></li>
-            <li><a href="<%linkurl("pmjc")%>">平面教程</a></li>
-            <li><a href="<%linkurl("ymxz")%>">源码下载</a></li>
+            <li><a href="/index.html" target="_blank" class="letter">首页</a></li>
+            <li><a target="_blank" href="<%linkurl("news")%>">新闻资讯</a></li>             
+            <li><a target="_blank" href="<%linkurl("wytx")%>"  >网页特效</a></li>
+            <li><a target="_blank" href="<%linkurl("wymb")%>">网页模板</a></li>
+            <li><a target="_blank" href="<%linkurl("wyjc")%>">网页教程</a></li>
+            <li><a target="_blank" href="<%linkurl("pmjc")%>">平面教程</a></li>
+            <li><a target="_blank" href="<%linkurl("ymxz")%>">源码下载</a></li>
             
         </ul>
       </div>
@@ -22,3 +23,14 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+    $(function(){
+        $(".header-wrap .left-box .nav li a").hover(function(){
+            $(this).addClass('animated jello');
+        },function(){
+            $(this).removeClass('animated jello');
+            //$('.header-wrap .left-box .nav li ').removeClass('animated bounceOutLeft');
+            //$(this).addClass('animated bounceInRight');
+        });
+    });
+</script>

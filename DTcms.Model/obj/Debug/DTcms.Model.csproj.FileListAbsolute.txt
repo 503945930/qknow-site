@@ -26,3 +26,10 @@ D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗�
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.Model\obj\Debug\DTcms.Model.csprojResolveAssemblyReference.cache
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.Model\obj\Debug\DTcms.Model.dll
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.Model\obj\Debug\DTcms.Model.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Model\bin\Debug\DTcms.Model.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Model\bin\Debug\DTcms.Model.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Model\bin\Debug\DTcms.Common.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Model\bin\Debug\DTcms.Common.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Model\obj\Debug\DTcms.Model.csprojResolveAssemblyReference.cache
+D:\wwwroot\dtcms\qknow-site\DTcms.Model\obj\Debug\DTcms.Model.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Model\obj\Debug\DTcms.Model.pdb
