@@ -33,9 +33,27 @@
             //$(this).addClass('animated bounceInRight');
         });
 
+
+      
+
+        scrollTop();
         
 
     
 
     });
+
+    //动态添加滚动到顶部
+    function scrollTop() {
+        var b = $("body"),
+           c = $(window),
+           d = $('<div class="back2top"></div>').appendTo(b);
+        c.scroll(function () {
+            c.scrollTop() > 100 ? d.addClass("scrolled") : d.removeClass("scrolled")
+        }), b.on("click", ".back2top", function () {
+            $("html,body").animate({
+                scrollTop: 0
+            }, 600)
+        })
+    }
 </script>

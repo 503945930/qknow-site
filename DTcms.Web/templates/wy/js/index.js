@@ -84,6 +84,9 @@ $(function() {
         $("#slider .slider-right .slider-content").eq(index).addClass("current");
     });
 
+   
+   
+
 
 
 
@@ -93,7 +96,7 @@ $(function() {
 //轮播
 function nextSlider() {
 
-    if (index > 1) {
+    if (index > 4) {
         index = 0;
     }
 

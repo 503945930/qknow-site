@@ -32,7 +32,7 @@
         <div class="center clearfix">
             <div class="slider-left">
 
-                <%set DataTable listCarousel=get_article_list("carousel", 0, 4, "status=0 and is_top=1")%>
+                <%set DataTable listCarousel=get_article_list(5, "status=0 and  is_hot=1","id")%>
 
                 
                 <%loop dr listCarousel%>
@@ -132,7 +132,7 @@
         <div class="main">
             <div class="center">
                 <ul id="indexcat" class="clearfix">
-                    <li class="menucat">所有内容：</li>
+                    <li class="menucat">置顶文章：</li>
                   
                 </ul>
                 <ul class="grid effect-2 articles clearfix" id="grid">
@@ -154,7 +154,7 @@
                                 </a>
                             </h2>
                             <div  class="post-content" >
-                                {dr[zhaiyao]}
+                                <%cutstring({dr[zhaiyao]},130)%>...
                             </div>
                         </div>
                     </li>
@@ -167,7 +167,6 @@
             </div>
         </div>
     </div>
-
     <!--Footer-->
     <%template src="_footer.html"%>
     <!--/Footer-->

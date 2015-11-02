@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/11/2 星期一 下午 3:59:23.
-		本页面代码由DTcms模板引擎生成于 2015/11/2 星期一 下午 3:59:23. 
+		This page was created by DTcms Template Engine at 2015/11/2 星期一 下午 8:19:32.
+		本页面代码由DTcms模板引擎生成于 2015/11/2 星期一 下午 8:19:32. 
 	*/
 
 	base.OnInit(e);
@@ -68,7 +68,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("', '#keywords');return false};\" placeholder=\"输入回车搜索\" x-webkit-speech=\"\" />\r\n        <input class=\"submit\" type=\"submit\" onclick=\"SiteSearch('");
 	templateBuilder.Append(linkurl("search"));
 
-	templateBuilder.Append("', '#keywords');\" value=\"搜索\" />\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n</div>\r\n<script type=\"text/javascript\">\r\n    $(function(){\r\n        $(\".header-wrap .left-box .nav li a\").hover(function(){\r\n            $(this).addClass('animated jello');\r\n        },function(){\r\n            $(this).removeClass('animated jello');\r\n            //$('.header-wrap .left-box .nav li ').removeClass('animated bounceOutLeft');\r\n            //$(this).addClass('animated bounceInRight');\r\n        });\r\n\r\n        \r\n\r\n    \r\n\r\n    });\r\n</");
+	templateBuilder.Append("', '#keywords');\" value=\"搜索\" />\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n</div>\r\n<script type=\"text/javascript\">\r\n    $(function(){\r\n        $(\".header-wrap .left-box .nav li a\").hover(function(){\r\n            $(this).addClass('animated jello');\r\n        },function(){\r\n            $(this).removeClass('animated jello');\r\n            //$('.header-wrap .left-box .nav li ').removeClass('animated bounceOutLeft');\r\n            //$(this).addClass('animated bounceInRight');\r\n        });\r\n\r\n\r\n      \r\n\r\n        scrollTop();\r\n        \r\n\r\n    \r\n\r\n    });\r\n\r\n    //动态添加滚动到顶部\r\n    function scrollTop() {\r\n        var b = $(\"body\"),\r\n           c = $(window),\r\n           d = $('<div class=\"back2top\"></div>').appendTo(b);\r\n        c.scroll(function () {\r\n            c.scrollTop() > 100 ? d.addClass(\"scrolled\") : d.removeClass(\"scrolled\")\r\n        }), b.on(\"click\", \".back2top\", function () {\r\n            $(\"html,body\").animate({\r\n                scrollTop: 0\r\n            }, 600)\r\n        })\r\n    }\r\n</");
 	templateBuilder.Append("script>");
 
 
@@ -401,7 +401,7 @@ override protected void OnInit(EventArgs e)
 
 	templateBuilder.Append("\r\n        </div>\r\n        \r\n      </div>\r\n      <!--/查看订单-->\r\n    </div>\r\n    <!--/右侧内容-->\r\n  </div>\r\n</div>\r\n\r\n<!--Footer-->\r\n");
 
-	templateBuilder.Append("\r\n\r\n<div class=\"customer\">\r\n    <a target=\"_blank\" href=\"http://wpa.qq.com/msgrd?v=3&uin=2190679807&site=qq&menu=yes\"><img border=\"0\" src=\"http://wpa.qq.com/pa?p=2:2190679807:51\" alt=\"点击联系客服\" title=\"点击联系客服\" /></a>\r\n</div>\r\n\r\n<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"/index.html\">首 页</a>|\r\n      <a target=\"_blank\" href=\"");
+	templateBuilder.Append("\r\n\r\n<div class=\"customer\">\r\n    <a target=\"_blank\" href=\"http://wpa.qq.com/msgrd?v=3&uin=2190679807&site=qq&menu=yes\"><img border=\"0\" src=\"http://wpa.qq.com/pa?p=2:2190679807:51\" alt=\"点击联系客服\" title=\"点击联系客服\" /></a>\r\n</div>\r\n<div class=\"customer2\">\r\n    <a target=\"_blank\" href=\"http://wpa.qq.com/msgrd?v=3&uin=2190679807&site=qq&menu=yes\"><img border=\"0\" src=\"http://wpa.qq.com/pa?p=2:2190679807:51\" alt=\"点击联系客服\" title=\"点击联系客服\" /></a>\r\n</div>\r\n<div class=\"customer3\">\r\n    <a target=\"_blank\" href=\"http://wpa.qq.com/msgrd?v=3&uin=3161894345&site=qq&menu=yes\"><img border=\"0\" src=\"http://wpa.qq.com/pa?p=2:3161894345:51\" alt=\"点击联系客服\" title=\"点击联系客服\" /></a>\r\n</div>\r\n<div class=\"customer4\">\r\n    <a target=\"_blank\" href=\"http://wpa.qq.com/msgrd?v=3&uin=3161894345&site=qq&menu=yes\"><img border=\"0\" src=\"http://wpa.qq.com/pa?p=2:3161894345:51\" alt=\"点击联系客服\" title=\"点击联系客服\" /></a>\r\n</div>\r\n<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"/index.html\">首 页</a>|\r\n      <a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("news"));
 
 	templateBuilder.Append("\">新闻资讯</a>|\r\n      <a target=\"_blank\" href=\"");
@@ -422,8 +422,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("\">源码下载</a>\r\n  </div>\r\n  <div class=\"copyright\">\r\n    <p>版权所有 ");
 	templateBuilder.Append(site.company.ToString());
 
-	templateBuilder.Append(" 沪ICP备14041733号 </p>\r\n    <p>Copyright &copy; 2015-  Corporation,All Rights Reserved.</p>\r\n    <p><script src=\"\" language=\"javascript\"></");
-	templateBuilder.Append("script></p>\r\n  </div>\r\n</div>");
+	templateBuilder.Append(" 渝ICP备12001141号-1 </p>\r\n    <p>Copyright &copy; 2015-  Corporation,All Rights Reserved.</p>   \r\n  </div>\r\n</div>");
 
 
 	templateBuilder.Append("\r\n<!--/Footer-->\r\n</body>\r\n</html>");
