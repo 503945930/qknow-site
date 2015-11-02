@@ -769,6 +769,8 @@ namespace DTcms.DAL
             return DbHelperSQL.Query(strSql.ToString());
         }
 
+
+
         /// <summary>
         /// 获得查询分页数据
         /// </summary>

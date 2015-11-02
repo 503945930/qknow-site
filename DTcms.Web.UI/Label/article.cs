@@ -170,6 +170,20 @@ namespace DTcms.Web.UI
             }
             return dt;
         }
+        /// <summary>
+        /// 查询所有数据前n行
+        /// </summary>
+        /// <param name="Top"></param>
+        /// <param name="strWhere"></param>
+        /// <param name="filedOrder"></param>
+        /// <returns></returns>
+        protected DataTable get_article_list(int Top, string strWhere, string filedOrder)
+        {
+            DataTable dt = new DataTable();
+            dt = new BLL.article().GetList(Top, strWhere, filedOrder).Tables[0];
+            return dt;
+        }
+
 
         /// <summary>
         /// 文章Tags标签列表

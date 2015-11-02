@@ -1025,10 +1025,12 @@
     <Content Include="templates\main\images\sprite.gif" />
     <Content Include="templates\main\images\user-avatar.png" />
     <Content Include="templates\main\images\user.png" />
+    <Content Include="templates\main\images\vieww.png" />
     <Content Include="templates\main\index.html" />
     <Content Include="templates\main\js\avatar.js" />
     <Content Include="templates\main\js\cart.js" />
     <Content Include="templates\main\js\common.js" />
+    <Content Include="templates\main\js\ellipsis.js" />
     <Content Include="templates\main\js\jquery.flexslider-min.js" />
     <Content Include="templates\main\js\lightbox.min.js" />
     <Content Include="templates\main\js\login-validate.js" />
@@ -1185,6 +1187,7 @@
     <Content Include="templates\wy\content.html" />
     <Content Include="templates\wy\css\animate.css" />
     <Content Include="templates\wy\css\flexslider.css" />
+    <Content Include="templates\wy\css\index.css" />
     <Content Include="templates\wy\css\lightbox.css" />
     <Content Include="templates\wy\css\style.css" />
     <Content Include="templates\wy\down.html" />
@@ -1206,17 +1209,21 @@
     <Content Include="templates\wy\images\login-bg.png" />
     <Content Include="templates\wy\images\logo.png" />
     <Content Include="templates\wy\images\next.png" />
+    <Content Include="templates\wy\images\nexth.png" />
     <Content Include="templates\wy\images\pic-bg.png" />
     <Content Include="templates\wy\images\prev.png" />
+    <Content Include="templates\wy\images\prevh.png" />
     <Content Include="templates\wy\images\search.png" />
     <Content Include="templates\wy\images\slider.png" />
     <Content Include="templates\wy\images\sprite.gif" />
     <Content Include="templates\wy\images\user-avatar.png" />
     <Content Include="templates\wy\images\user.png" />
     <Content Include="templates\wy\index.html" />
+    <Content Include="templates\wy\index1.html" />
     <Content Include="templates\wy\js\avatar.js" />
     <Content Include="templates\wy\js\cart.js" />
     <Content Include="templates\wy\js\common.js" />
+    <Content Include="templates\wy\js\index.js" />
     <Content Include="templates\wy\js\jquery.flexslider-min.js" />
     <Content Include="templates\wy\js\lightbox.min.js" />
     <Content Include="templates\wy\js\login-validate.js" />
@@ -2083,6 +2090,7 @@
     <Content Include="templates\wy\ymxz_list.html" />
     <Content Include="templates\wy\pmjc_show.html" />
     <Content Include="templates\wy\ymxz_show.html" />
+    <Content Include="templates\wy\font\miranafont.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

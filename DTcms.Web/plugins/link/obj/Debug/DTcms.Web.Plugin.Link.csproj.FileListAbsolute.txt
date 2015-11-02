@@ -63,3 +63,8 @@ D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗�
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.Web\plugins\link\obj\Debug\DTcms.Web.Plugin.Link.csprojResolveAssemblyReference.cache
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.Web\plugins\link\obj\Debug\DTcms.Web.Plugin.Link.dll
 D:\Document And Settings3\laoqiu\Personal\Tencent Files\130990851\FileRecv\旗舰版\DTcms.Web\plugins\link\obj\Debug\DTcms.Web.Plugin.Link.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Web.Plugin.Link.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\bin\DTcms.Web.Plugin.Link.pdb
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\plugins\link\obj\Debug\DTcms.Web.Plugin.Link.csprojResolveAssemblyReference.cache
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\plugins\link\obj\Debug\DTcms.Web.Plugin.Link.dll
+D:\wwwroot\dtcms\qknow-site\DTcms.Web\plugins\link\obj\Debug\DTcms.Web.Plugin.Link.pdb

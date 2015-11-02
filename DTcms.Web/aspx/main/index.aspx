@@ -9,31 +9,38 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/11/1 星期日 下午 8:54:30.
-		本页面代码由DTcms模板引擎生成于 2015/11/1 星期日 下午 8:54:30. 
+		This page was created by DTcms Template Engine at 2015/11/2 星期一 下午 3:59:23.
+		本页面代码由DTcms模板引擎生成于 2015/11/2 星期一 下午 3:59:23. 
 	*/
 
 	base.OnInit(e);
 	StringBuilder templateBuilder = new StringBuilder(220000);
 
-	templateBuilder.Append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n<title>");
+	templateBuilder.Append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n    <title>");
 	templateBuilder.Append(Utils.ObjectToStr(site.name));
-	templateBuilder.Append("</title>\r\n<meta name=\"keywords\" content=\"");
+	templateBuilder.Append("</title>\r\n    <meta name=\"keywords\" content=\"");
 	templateBuilder.Append(Utils.ObjectToStr(site.seo_keyword));
-	templateBuilder.Append("\" />\r\n<meta name=\"description\" content=\"");
+	templateBuilder.Append("\" />\r\n    <meta name=\"description\" content=\"");
 	templateBuilder.Append(Utils.ObjectToStr(site.seo_description));
-	templateBuilder.Append("\" />\r\n<link href=\"");
+	templateBuilder.Append("\" />\r\n    <link href=\"");
 	templateBuilder.Append("/templates/wy");
-	templateBuilder.Append("/css/style.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("/css/style.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n    <link href=\"");
+	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
+	templateBuilder.Append("css/pagination.css\" rel=\"stylesheet\" />\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
 	templateBuilder.Append("scripts/jquery/jquery-1.11.2.min.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append("/templates/wy");
 	templateBuilder.Append("/js/jquery.flexslider-min.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append("/templates/wy");
 	templateBuilder.Append("/js/common.js\"></");
-	templateBuilder.Append("script>\r\n\r\n</head>\r\n\r\n<body>\r\n<!--Header-->\r\n");
+	templateBuilder.Append("script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/js/index.js\"></");
+	templateBuilder.Append("script>\r\n    <link rel=\"stylesheet\" href=\"");
+	templateBuilder.Append("/templates/wy");
+	templateBuilder.Append("/css/index.css\" />\r\n    <style type=\"text/css\" media=\"screen\">\r\n        #slider .slider-right .slider-content {\r\n            -webkit-animation: slideInUp 1s;\r\n            animation: slideInUp 1s;\r\n        }\r\n        #content .center{width:1000px;}\r\n    </style>\r\n\r\n</head>\r\n\r\n<body>\r\n    <!--Header-->\r\n    ");
 
 	templateBuilder.Append("<link href=\"");
 	templateBuilder.Append("/templates/wy");
@@ -70,363 +77,77 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("script>");
 
 
-	templateBuilder.Append("\r\n<!--/Header-->\r\n\r\n<div class=\"section clearfix\">\r\n    \r\n  <div class=\"ntitle\">\r\n    <h2>\r\n      <a  href=\"");
-	templateBuilder.Append(linkurl("news"));
+	templateBuilder.Append("\r\n    <!--/Header-->\r\n\r\n\r\n    <div id=\"slider\">\r\n        <div class=\"center clearfix\">\r\n            <div class=\"slider-left\">\r\n\r\n                ");
+	DataTable listCarousel = get_article_list("carousel", 0, 4, "status=0 and is_top=1");
 
-	templateBuilder.Append("\">新闻资讯<em></em></a>\r\n    </h2>\r\n  <p class=\"new_title\">\r\n      <!--类别-->\r\n      ");
-	DataTable newsCList = get_category_child_list("news",0);
-
-	int ncdr__loop__id=0;
-	foreach(DataRow ncdr in newsCList.Rows)
+	int dr__loop__id=0;
+	foreach(DataRow dr in listCarousel.Rows)
 	{
-		ncdr__loop__id++;
+		dr__loop__id++;
 
 
-	if (ncdr__loop__id==1)
+	if (dr__loop__id==1)
 	{
 
-	templateBuilder.Append("\r\n      <a class=\"no-bg\" href=\"");
-	templateBuilder.Append(linkurl("news_list",Utils.ObjectToStr(ncdr["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(ncdr["title"]) + "</a>\r\n      ");
+	templateBuilder.Append("\r\n                <div class=\"slider-thumbnail current\">\r\n                    <div class=\"bg-tile\">\r\n                        <div class=\"bg-img\" style=\"-webkit-transform: none; transform: none;\">\r\n                            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" width=\"500\" height=\"300\" />\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"bg-tile\">\r\n                        <div class=\"bg-img\" style=\"-webkit-transform: none; transform: none;\">\r\n                            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" width=\"500\" height=\"300\" />\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"bg-tile\">\r\n                        <div class=\"bg-img\" style=\"-webkit-transform: none; transform: none;\">\r\n                            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" width=\"500\" height=\"300\" />\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"bg-tile\">\r\n                        <div class=\"bg-img\" style=\"-webkit-transform: none; transform: none;\">\r\n                            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" width=\"500\" height=\"300\" />\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                ");
 	}
 	else
 	{
 
-	templateBuilder.Append("\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("news_list",Utils.ObjectToStr(ncdr["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(ncdr["title"]) + "</a>\r\n      ");
+	templateBuilder.Append("\r\n                <div class=\"slider-thumbnail\">\r\n                    <div class=\"bg-tile\">\r\n                        <div class=\"bg-img\" style=\"-webkit-transform: none; transform: none;\">\r\n                            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" width=\"500\" height=\"300\" />\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"bg-tile\">\r\n                        <div class=\"bg-img\" style=\"-webkit-transform: none; transform: none;\">\r\n                            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" width=\"500\" height=\"300\" />\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"bg-tile\">\r\n                        <div class=\"bg-img\" style=\"-webkit-transform: none; transform: none;\">\r\n                            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" width=\"500\" height=\"300\" />\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"bg-tile\">\r\n                        <div class=\"bg-img\" style=\"-webkit-transform: none; transform: none;\">\r\n                            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" width=\"500\" height=\"300\" />\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                ");
 	}	//end for if
 
 	}	//end for if
 
-	templateBuilder.Append("\r\n      <!--/类别-->\r\n    </p>\r\n  </div>\r\n    \r\n  <div class=\"wrapper clearfix\">\r\n    <div class=\"main-left\">\r\n      <div class=\"focusbox\">\r\n        <ul class=\"slides\">\r\n          ");
-	DataTable focusNews = get_article_list("news", 0, 8, "status=0 and is_slide=1 and img_url<>''");
+	templateBuilder.Append("\r\n               \r\n\r\n\r\n            </div>\r\n            <div class=\"slider-right\">\r\n\r\n\r\n                ");
+	int drr__loop__id=0;
+	foreach(DataRow drr in listCarousel.Rows)
+	{
+		drr__loop__id++;
 
-	foreach(DataRow dr in focusNews.Rows)
+
+	if (drr__loop__id==1)
 	{
 
-	templateBuilder.Append("\r\n          <li>\r\n            <a title=\"" + Utils.ObjectToStr(dr["title"]) + "\" href=\"");
+	templateBuilder.Append("\r\n                <div class=\"slider-content current\">\r\n                    <h1><a title=\"" + Utils.ObjectToStr(drr["title"]) + "\" href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(drr["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(drr["title"]) + "</a></h1>\r\n                    <div class=\"slidertext\">\r\n                        <p>\r\n                            " + Utils.ObjectToStr(drr["zhaiyao"]) + "\r\n                        </p>\r\n                    </div>\r\n                    <div class=\"sliderfooter\">\r\n                        <a class=\"sliderlink\" href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(drr["id"])));
+
+	templateBuilder.Append("\">阅读全部</a>\r\n                    </div>\r\n                </div>\r\n                ");
+	}
+	else
+	{
+
+	templateBuilder.Append("\r\n                <div class=\"slider-content\">\r\n                    <h1><a title=\"" + Utils.ObjectToStr(drr["title"]) + "\" href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(drr["id"])));
+
+	templateBuilder.Append("\">" + Utils.ObjectToStr(drr["title"]) + "</a></h1>\r\n                    <div class=\"slidertext\">\r\n                        <p>\r\n                            " + Utils.ObjectToStr(drr["zhaiyao"]) + "\r\n                        </p>\r\n                    </div>\r\n                    <div class=\"sliderfooter\">\r\n                        <a class=\"sliderlink\" href=\"");
+	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(drr["id"])));
+
+	templateBuilder.Append("\">阅读全部</a>\r\n                    </div>\r\n                </div>\r\n                ");
+	}	//end for if
+
+	}	//end for if
+
+	templateBuilder.Append("\r\n               \r\n\r\n            </div>\r\n            <div class=\"slider-dots\">\r\n               \r\n            </div>\r\n            <a href=\"javascript:;\" id=\"prev\" class=\"slider-nav slider-prev\"></a>\r\n            <a href=\"javascript:;\" id=\"next\" class=\"slider-nav slider-next\"></a>\r\n        </div>\r\n    </div>\r\n    <div id=\"content\">\r\n        <div class=\"main\">\r\n            <div class=\"center\">\r\n                <ul id=\"indexcat\" class=\"clearfix\">\r\n                    <li class=\"menucat\">所有内容：</li>\r\n                  \r\n                </ul>\r\n                <ul class=\"grid effect-2 articles clearfix\" id=\"grid\">\r\n\r\n                    ");
+	DataTable nlist = get_article_list(12, "status=0 and  is_top=1","id");
+
+	templateBuilder.Append("\r\n                    <!--使用foreach循环输出-->\r\n                    ");
+	foreach(DataRow dr in nlist.Rows)
+	{
+
+	templateBuilder.Append("\r\n                    <li class=\"post post-width-thumbnail\" style=\"-webkit-transition: transform 0.5s, opacity 0.5s; transition: transform 0.5s, opacity 0.5s;\">\r\n                        <div class=\"post-thumbnail\">\r\n                            <div class=\"overlay\">\r\n                                <a href=\"");
 	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(dr["id"])));
 
-	templateBuilder.Append("\">\r\n              <span class=\"note-bg\"></span>\r\n              <span class=\"note-txt\">" + Utils.ObjectToStr(dr["title"]) + "</span>\r\n              <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" />\r\n            </a>\r\n          </li>\r\n          ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n        </ul>\r\n      </div>\r\n    </div>\r\n    \r\n    <div class=\"main-left\" style=\"margin-right:0;\">\r\n      <ul class=\"txt-list\">\r\n        ");
-	DataTable newsList = get_article_list("news", 0, 9, "status=0");
-
-	int newdr__loop__id=0;
-	foreach(DataRow newdr in newsList.Rows)
-	{
-		newdr__loop__id++;
-
-
-	if (newdr__loop__id==1)
-	{
-
-	templateBuilder.Append("\r\n        <li class=\"tit\">\r\n        ");
-	}
-	else
-	{
-
-	templateBuilder.Append("\r\n        <li>\r\n         <span>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(newdr["add_time"])).ToString("MM-dd"));
-
-	templateBuilder.Append("</span>\r\n        ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n          <a title=\"" + Utils.ObjectToStr(newdr["title"]) + "\" href=\"");
-	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(newdr["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(newdr["title"]) + "</a>\r\n        </li>\r\n        ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n    <div class=\"sidebar-right\" style=\"margin-left:15px;\">\r\n      <ul class=\"img-list ilist\">\r\n        ");
-	DataTable topNewsList = get_article_list("news", 0, 2, "status=0 and is_top=1 and img_url<>''");
-
-	foreach(DataRow dr in topNewsList.Rows)
-	{
-
-	templateBuilder.Append("\r\n        <li>\r\n          <a title=\"" + Utils.ObjectToStr(dr["title"]) + "\" href=\"");
+	templateBuilder.Append("\" rel=\"bookmark\"></a>\r\n                            </div>\r\n                            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" alt=\"" + Utils.ObjectToStr(dr["title"]) + "\" width=\"320\" height=\"200\" />\r\n                        </div>\r\n                        <div class=\"post-body\">\r\n                            <h2 class=\"post-title\">\r\n                                <a href=\"");
 	templateBuilder.Append(linkurl("news_show",Utils.ObjectToStr(dr["id"])));
 
-	templateBuilder.Append("\">\r\n            ");
-	if (Utils.ObjectToStr(dr["is_top"])=="1")
-	{
-
-	templateBuilder.Append("\r\n            <span class=\"abs-txt\">头条</span>\r\n            ");
+	templateBuilder.Append("\" rel=\"bookmark\">\r\n                                    " + Utils.ObjectToStr(dr["title"]) + "\r\n                                </a>\r\n                            </h2>\r\n                            <div  class=\"post-content\" >\r\n                                " + Utils.ObjectToStr(dr["zhaiyao"]) + "\r\n                            </div>\r\n                        </div>\r\n                    </li>\r\n                    ");
 	}	//end for if
 
-	templateBuilder.Append("\r\n            <span class=\"abs-bg\"></span>\r\n            <span class=\"txt1\">" + Utils.ObjectToStr(dr["title"]) + "</span>\r\n            <span class=\"txt2\">\r\n              <i>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(dr["add_time"])).ToString("MM-dd"));
-
-	templateBuilder.Append("</i>\r\n              <p>" + Utils.ObjectToStr(dr["zhaiyao"]) + "</p>\r\n            </span>\r\n            <img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" />\r\n          </a>\r\n        </li>\r\n        ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"section clearfix\">\r\n  <div class=\"ntitle\">\r\n    <h2>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("wytx"));
-
-	templateBuilder.Append("\">网页特效<em></em></a>\r\n    </h2>\r\n    <p class=\"new_title\">\r\n      <!--类别-->\r\n      ");
-	DataTable wytx_photoCList = get_category_child_list("wytx",0);
-
-	int wytx__loop__id=0;
-	foreach(DataRow wytx in wytx_photoCList.Rows)
-	{
-		wytx__loop__id++;
-
-
-	if (wytx__loop__id==1)
-	{
-
-	templateBuilder.Append("\r\n      <a class=\"no-bg\" href=\"");
-	templateBuilder.Append(linkurl("wytx_list",Utils.ObjectToStr(wytx["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(wytx["title"]) + "</a>\r\n      ");
-	}
-	else
-	{
-
-	templateBuilder.Append("\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("wytx_list",Utils.ObjectToStr(wytx["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(wytx["title"]) + "</a>\r\n      ");
-	}	//end for if
-
-	}	//end for if
-
-	templateBuilder.Append("\r\n      <!--/类别-->\r\n    </p>\r\n  </div>\r\n  <div class=\"wrapper clearfix\">\r\n    <div class=\"photo-list ilist\">\r\n      <ul>\r\n        ");
-	DataTable wytx_redPhoto = get_article_list("wytx", 0, 6, "status=0");
-
-	int wytxdr__loop__id=0;
-	foreach(DataRow wytxdr in wytx_redPhoto.Rows)
-	{
-		wytxdr__loop__id++;
-
-
-	templateBuilder.Append("\r\n        <li class=\"col-");
-	templateBuilder.Append(Utils.ObjectToStr(wytxdr__loop__id));
-	templateBuilder.Append("\">\r\n          <a title=\"" + Utils.ObjectToStr(wytxdr["title"]) + "\" href=\"");
-	templateBuilder.Append(linkurl("wytx_show",Utils.ObjectToStr(wytxdr["id"])));
-
-	templateBuilder.Append("\">\r\n            <span class=\"abs-bg\"></span>\r\n            <span class=\"txt1\">" + Utils.ObjectToStr(wytxdr["title"]) + "</span>\r\n            <span class=\"txt2\">\r\n              <p>" + Utils.ObjectToStr(wytxdr["add_time"]) + "</p>\r\n            </span>\r\n            <img src=\"" + Utils.ObjectToStr(wytxdr["img_url"]) + "\" />\r\n          </a>\r\n        </li>\r\n        ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"section clearfix\">\r\n  <div class=\"ntitle\">\r\n    <h2>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("wymb"));
-
-	templateBuilder.Append("\">网页模板<em></em></a>\r\n    </h2>\r\n    <p class=\"new_title\">\r\n      <!--类别-->\r\n      ");
-	DataTable wymb_photoCList = get_category_child_list("wymb",0);
-
-	int wymb__loop__id=0;
-	foreach(DataRow wymb in wymb_photoCList.Rows)
-	{
-		wymb__loop__id++;
-
-
-	if (wymb__loop__id==1)
-	{
-
-	templateBuilder.Append("\r\n      <a class=\"no-bg\" href=\"");
-	templateBuilder.Append(linkurl("wymb_list",Utils.ObjectToStr(wymb["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(wymb["title"]) + "</a>\r\n      ");
-	}
-	else
-	{
-
-	templateBuilder.Append("\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("wymb_list",Utils.ObjectToStr(wymb["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(wymb["title"]) + "</a>\r\n      ");
-	}	//end for if
-
-	}	//end for if
-
-	templateBuilder.Append("\r\n      <!--/类别-->\r\n    </p>\r\n  </div>\r\n  <div class=\"wrapper clearfix\">\r\n    <div class=\"photo-list ilist\">\r\n      <ul>\r\n        ");
-	DataTable wymb_redPhoto = get_article_list("wymb", 0, 6, "status=0");
-
-	int wymbdr__loop__id=0;
-	foreach(DataRow wymbdr in wymb_redPhoto.Rows)
-	{
-		wymbdr__loop__id++;
-
-
-	templateBuilder.Append("\r\n        <li class=\"col-");
-	templateBuilder.Append(Utils.ObjectToStr(wymbdr__loop__id));
-	templateBuilder.Append("\">\r\n          <a title=\"" + Utils.ObjectToStr(wymbdr["title"]) + "\" href=\"");
-	templateBuilder.Append(linkurl("wymb_show",Utils.ObjectToStr(wymbdr["id"])));
-
-	templateBuilder.Append("\">\r\n            <span class=\"abs-bg\"></span>\r\n            <span class=\"txt1\">" + Utils.ObjectToStr(wymbdr["title"]) + "</span>\r\n            <span class=\"txt2\">\r\n              <p>" + Utils.ObjectToStr(wymbdr["add_time"]) + "</p>\r\n            </span>\r\n            <img src=\"" + Utils.ObjectToStr(wymbdr["img_url"]) + "\" />\r\n          </a>\r\n        </li>\r\n        ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"section clearfix\">\r\n  <div class=\"ntitle\">\r\n    <h2>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("wyjc"));
-
-	templateBuilder.Append("\">网页教程<em></em></a>\r\n    </h2>\r\n    <p class=\"new_title\">\r\n      <!--类别-->\r\n      ");
-	DataTable wyjc_photoCList = get_category_child_list("wyjc",0);
-
-	int wyjc__loop__id=0;
-	foreach(DataRow wyjc in wyjc_photoCList.Rows)
-	{
-		wyjc__loop__id++;
-
-
-	if (wyjc__loop__id==1)
-	{
-
-	templateBuilder.Append("\r\n      <a class=\"no-bg\" href=\"");
-	templateBuilder.Append(linkurl("wyjc_list",Utils.ObjectToStr(wyjc["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(wyjc["title"]) + "</a>\r\n      ");
-	}
-	else
-	{
-
-	templateBuilder.Append("\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("wyjc_list",Utils.ObjectToStr(wyjc["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(wyjc["title"]) + "</a>\r\n      ");
-	}	//end for if
-
-	}	//end for if
-
-	templateBuilder.Append("\r\n      <!--/类别-->\r\n    </p>\r\n  </div>\r\n  <div class=\"wrapper clearfix\">\r\n    <div class=\"photo-list ilist\">\r\n      <ul>\r\n        ");
-	DataTable wyjc_redPhoto = get_article_list("wyjc", 0, 6, "status=0");
-
-	int wyjcdr__loop__id=0;
-	foreach(DataRow wyjcdr in wyjc_redPhoto.Rows)
-	{
-		wyjcdr__loop__id++;
-
-
-	templateBuilder.Append("\r\n        <li class=\"col-");
-	templateBuilder.Append(Utils.ObjectToStr(wyjcdr__loop__id));
-	templateBuilder.Append("\">\r\n          <a title=\"" + Utils.ObjectToStr(wyjcdr["title"]) + "\" href=\"");
-	templateBuilder.Append(linkurl("wyjc_show",Utils.ObjectToStr(wyjcdr["id"])));
-
-	templateBuilder.Append("\">\r\n            <span class=\"abs-bg\"></span>\r\n            <span class=\"txt1\">" + Utils.ObjectToStr(wyjcdr["title"]) + "</span>\r\n            <span class=\"txt2\">\r\n              <p>" + Utils.ObjectToStr(wyjcdr["add_time"]) + "</p>\r\n            </span>\r\n            <img src=\"" + Utils.ObjectToStr(wyjcdr["img_url"]) + "\" />\r\n          </a>\r\n        </li>\r\n        ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"section clearfix\">\r\n  <div class=\"ntitle\">\r\n    <h2>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("pmjc"));
-
-	templateBuilder.Append("\">平面教程<em></em></a>\r\n    </h2>\r\n    <p class=\"new_title\">\r\n      <!--类别-->\r\n      ");
-	DataTable pmjc_photoCList = get_category_child_list("pmjc",0);
-
-	int pmjc__loop__id=0;
-	foreach(DataRow pmjc in pmjc_photoCList.Rows)
-	{
-		pmjc__loop__id++;
-
-
-	if (pmjc__loop__id==1)
-	{
-
-	templateBuilder.Append("\r\n      <a class=\"no-bg\" href=\"");
-	templateBuilder.Append(linkurl("pmjc_list",Utils.ObjectToStr(pmjc["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(pmjc["title"]) + "</a>\r\n      ");
-	}
-	else
-	{
-
-	templateBuilder.Append("\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("pmjc_list",Utils.ObjectToStr(pmjc["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(pmjc["title"]) + "</a>\r\n      ");
-	}	//end for if
-
-	}	//end for if
-
-	templateBuilder.Append("\r\n      <!--/类别-->\r\n    </p>\r\n  </div>\r\n  <div class=\"wrapper clearfix\">\r\n    <div class=\"photo-list ilist\">\r\n      <ul>\r\n        ");
-	DataTable pmjc_redPhoto = get_article_list("pmjc", 0, 6, "status=0");
-
-	int pmjcdr__loop__id=0;
-	foreach(DataRow pmjcdr in pmjc_redPhoto.Rows)
-	{
-		pmjcdr__loop__id++;
-
-
-	templateBuilder.Append("\r\n        <li class=\"col-");
-	templateBuilder.Append(Utils.ObjectToStr(pmjcdr__loop__id));
-	templateBuilder.Append("\">\r\n          <a title=\"" + Utils.ObjectToStr(pmjcdr["title"]) + "\" href=\"");
-	templateBuilder.Append(linkurl("pmjc_show",Utils.ObjectToStr(pmjcdr["id"])));
-
-	templateBuilder.Append("\">\r\n            <span class=\"abs-bg\"></span>\r\n            <span class=\"txt1\">" + Utils.ObjectToStr(pmjcdr["title"]) + "</span>\r\n            <span class=\"txt2\">\r\n              <p>" + Utils.ObjectToStr(pmjcdr["add_time"]) + "</p>\r\n            </span>\r\n            <img src=\"" + Utils.ObjectToStr(pmjcdr["img_url"]) + "\" />\r\n          </a>\r\n        </li>\r\n        ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"section clearfix\">\r\n  <div class=\"ntitle\">\r\n    <h2>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("ymxz"));
-
-	templateBuilder.Append("\">源码下载<em></em></a>\r\n    </h2>\r\n    <p class=\"new_title\">\r\n      <!--类别-->\r\n      ");
-	DataTable ymxzCList = get_category_child_list("ymxz",0);
-
-	int ymxz__loop__id=0;
-	foreach(DataRow ymxz in ymxzCList.Rows)
-	{
-		ymxz__loop__id++;
-
-
-	if (ymxz__loop__id==1)
-	{
-
-	templateBuilder.Append("\r\n      <a class=\"no-bg\" href=\"");
-	templateBuilder.Append(linkurl("ymxz_list",Utils.ObjectToStr(ymxz["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(ymxz["title"]) + "</a>\r\n      ");
-	}
-	else
-	{
-
-	templateBuilder.Append("\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("ymxz_list",Utils.ObjectToStr(ymxz["id"])));
-
-	templateBuilder.Append("\">" + Utils.ObjectToStr(ymxz["title"]) + "</a>\r\n      ");
-	}	//end for if
-
-	}	//end for if
-
-	templateBuilder.Append("\r\n      <!--/类别-->\r\n    </p>\r\n  </div>\r\n  <div class=\"wrapper clearfix\">\r\n    <ul class=\"img-list high ilist\">\r\n      ");
-	DataTable ymxz_redDown = get_article_list("ymxz", 0, 5, "status=0");
-
-	foreach(DataRow ymxz in ymxz_redDown.Rows)
-	{
-
-	templateBuilder.Append("\r\n      <li>\r\n        <a title=\"" + Utils.ObjectToStr(ymxz["title"]) + "\" href=\"");
-	templateBuilder.Append(linkurl("ymxz_show",Utils.ObjectToStr(ymxz["id"])));
-
-	templateBuilder.Append("\">\r\n          <div class=\"img-box\">\r\n            <img src=\"" + Utils.ObjectToStr(ymxz["img_url"]) + "\" />\r\n          </div>\r\n          <div class=\"info\">\r\n            <h3>" + Utils.ObjectToStr(ymxz["title"]) + "</h3>\r\n            <span>\r\n              <i>下载：<script type=\"text/javascript\" src=\"");
-	templateBuilder.Append(Utils.ObjectToStr(config.webpath));
-	templateBuilder.Append("tools/submit_ajax.ashx?action=view_attach_count&id=" + Utils.ObjectToStr(ymxz["id"]) + "&view=count\"></");
-	templateBuilder.Append("script>次</i>\r\n              <p>");	templateBuilder.Append(Utils.ObjectToDateTime(Utils.ObjectToStr(ymxz["add_time"])).ToString("yyyy-MM-dd"));
-
-	templateBuilder.Append("</p>\r\n            </span>\r\n          </div>\r\n        </a>\r\n      </li>\r\n      ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n    </ul>\r\n  </div>\r\n</div>\r\n\r\n<!--<div class=\"section clearfix\">\r\n  <div class=\"ntitle\">\r\n    <h2>\r\n      <a href=\"");
-	templateBuilder.Append(linkurl("link"));
-
-	templateBuilder.Append("\">友情链接<em></em></a>\r\n    </h2>\r\n    <p>\r\n      <a class=\"no-bg\" href=\"");
-	templateBuilder.Append(linkurl("link"));
-
-	templateBuilder.Append("\">申请链接</a>\r\n    </p>\r\n  </div>\r\n  <div class=\"wrapper link-box\">\r\n    <div class=\"txt\">\r\n      ");
-	DataTable linkList1 = get_plugin_method("DTcms.Web.Plugin.Link", "link", "get_link_list", 0, "is_lock=0 and is_image=0 and is_red=1");
-
-	foreach(DataRow dr in linkList1.Rows)
-	{
-
-	templateBuilder.Append("\r\n        <a target=\"_blank\" href=\"" + Utils.ObjectToStr(dr["site_url"]) + "\">" + Utils.ObjectToStr(dr["title"]) + "</a> | \r\n      ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n    </div>\r\n    <ul class=\"img\">\r\n      ");
-	DataTable linkList2 = get_plugin_method("DTcms.Web.Plugin.Link", "link", "get_link_list", 10, "is_lock=0 and is_image=1 and is_red=1");
-
-	foreach(DataRow dr in linkList2.Rows)
-	{
-
-	templateBuilder.Append("\r\n        <li><a target=\"_blank\" href=\"" + Utils.ObjectToStr(dr["site_url"]) + "\" title=\"" + Utils.ObjectToStr(dr["title"]) + "\"><img src=\"" + Utils.ObjectToStr(dr["img_url"]) + "\" /></a></li>\r\n      ");
-	}	//end for if
-
-	templateBuilder.Append("\r\n    </ul>\r\n  </div>\r\n</div>-->\r\n\r\n<!--Footer-->\r\n");
+	templateBuilder.Append("\r\n\r\n                  \r\n                </ul>\r\n\r\n              \r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <!--Footer-->\r\n    ");
 
 	templateBuilder.Append("\r\n\r\n<div class=\"customer\">\r\n    <a target=\"_blank\" href=\"http://wpa.qq.com/msgrd?v=3&uin=2190679807&site=qq&menu=yes\"><img border=\"0\" src=\"http://wpa.qq.com/pa?p=2:2190679807:51\" alt=\"点击联系客服\" title=\"点击联系客服\" /></a>\r\n</div>\r\n\r\n<div class=\"footer clearfix\">\r\n  <div class=\"foot-nav\">\r\n    <a target=\"_blank\" href=\"/index.html\">首 页</a>|\r\n      <a target=\"_blank\" href=\"");
 	templateBuilder.Append(linkurl("news"));
@@ -453,7 +174,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("script></p>\r\n  </div>\r\n</div>");
 
 
-	templateBuilder.Append("\r\n<!--/Footer-->\r\n    <script type=\"text/javascript\">\r\n        $(function () {\r\n            $(\".focusbox\").flexslider({\r\n                directionNav: false,\r\n                pauseOnAction: false\r\n            });\r\n        });\r\n        $(\".nav li a\").eq(0).addClass('animated jello').css(\"color\", \"#fff\");\r\n</");
+	templateBuilder.Append("\r\n    <!--/Footer-->\r\n    <script type=\"text/javascript\">\r\n        $(function () {\r\n            $(\".focusbox\").flexslider({\r\n                directionNav: false,\r\n                pauseOnAction: false\r\n            });\r\n        });\r\n        $(\".nav li a\").eq(0).addClass('animated jello').css(\"color\", \"#fff\");\r\n      \r\n    </");
 	templateBuilder.Append("script>\r\n</body>\r\n</html>");
 	Response.Write(templateBuilder.ToString());
 }
