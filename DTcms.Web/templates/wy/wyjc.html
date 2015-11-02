@@ -9,14 +9,6 @@
 <script type="text/javascript" charset="utf-8" src="{config.webpath}scripts/jquery/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/jquery.flexslider-min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%templateskin%>/js/common.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $(".focusbox").flexslider({
-            directionNav: false,
-            pauseOnAction: false
-        });
-    });
-</script>
 </head>
 
 <body>
@@ -42,20 +34,20 @@
 <!--分类资讯-->
 <%set DataTable categoryList=get_category_child_list(channel,0)%>
 <%foreach(DataRow cdr in categoryList.Rows)%>
-    <div id="{cdr[id]}" style="margin-top:-53px;"></div>
+
 <div class="section clearfix" style="margin-top:53px">
 
     <div class="ntitle">
          
     <h2 >
-      <a href="<%linkurl("wyjc_list",{cdr[id]})%>">{cdr[title]}<em></em></a>
+        <a id="{cdr[id]}" href="<%linkurl("wyjc_list",{cdr[id]})%>">{cdr[title]}<em></em></a>
     </h2>
     <p>
       <!--小类-->
       <%set DataTable bcategoryList=get_category_child_list(channel,{strtoint({cdr[id]})})%>
       <%loop cdr2 bcategoryList%>
       <%if(cdr2__loop__id==1)%>
-      <a class="no-bg" href="<%linkurl("wyjc_list",{cdr2[id]})%>">{cdr2[title]}</a>
+      <a class="no-bg"  href="<%linkurl("wyjc_list",{cdr2[id]})%>">{cdr2[title]}</a>
       <%else%>
       <a href="<%linkurl("wyjc_list",{cdr2[id]})%>">{cdr2[title]}</a>
       <%/if%>

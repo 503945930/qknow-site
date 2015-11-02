@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by DTcms Template Engine at 2015/11/2 星期一 下午 8:19:32.
-		本页面代码由DTcms模板引擎生成于 2015/11/2 星期一 下午 8:19:32. 
+		This page was created by DTcms Template Engine at 2015/11/2 星期一 下午 8:56:31.
+		本页面代码由DTcms模板引擎生成于 2015/11/2 星期一 下午 8:56:31. 
 	*/
 
 	base.OnInit(e);
@@ -34,7 +34,6 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("script>\r\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"");
 	templateBuilder.Append("/templates/wy");
 	templateBuilder.Append("/js/common.js\"></");
-	templateBuilder.Append("script>\r\n<script type=\"text/javascript\">\r\n$(function(){\r\n	$(\".focusbox\").flexslider({\r\n		directionNav: false,\r\n		pauseOnAction: false\r\n	});\r\n});\r\n</");
 	templateBuilder.Append("script>\r\n</head>\r\n\r\n<body>\r\n<!--Header-->\r\n");
 
 	templateBuilder.Append("<link href=\"");

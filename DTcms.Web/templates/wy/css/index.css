@@ -388,6 +388,7 @@ li.current-menu-item.menu-item-has-children>a:before,li.menu-item-has-children>a
 
 .sliderlink:hover {
     background: #f57171;
+    color:#000;
 }
 
 .sliderlink:before {
